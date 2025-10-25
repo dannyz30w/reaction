@@ -1,0 +1,256 @@
+/* Basic Reset & Body Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Or a font of your choice */
+    background-color: #1a1a1a; /* Dark background */
+    color: #f0f0f0; /* Light text */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0d0d0d;
+    padding: 15px 0;
+    border-bottom: 2px solid #333;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    margin: 0;
+    font-size: 2em;
+    color: #fff;
+    line-height: 1; /* Adjust for multiline logo */
+}
+
+.navbar nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 25px;
+}
+
+.navbar nav ul li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: #fff;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero-section .cover-display {
+    background-color: #333;
+    border: 2px solid #555;
+    padding: 20px;
+    display: inline-block; /* To center the block itself */
+}
+
+.hero-section .journal-cover {
+    max-width: 300px; /* Adjust size as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto 15px; /* Center image and add space below */
+}
+
+/* Quote Section */
+.quote-section {
+    background-color: #222;
+    padding: 50px 0;
+    text-align: center;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+    position: relative; /* For positioning the quick blurb */
+}
+
+.quote-section .quote {
+    font-size: 2.2em;
+    font-style: italic;
+    color: #eee;
+    margin-bottom: 10px;
+}
+
+.quote-section .author {
+    font-size: 1.3em;
+    color: #aaa;
+    margin-top: 0;
+}
+
+.quick-blurb {
+    position: absolute;
+    left: 20px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #3a3a3a;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: #ccc;
+    text-align: left;
+    max-width: 150px;
+}
+.quick-blurb p {
+    margin: 5px 0;
+}
+
+
+/* Content Grid (Editorial and Sidebar) */
+.content-grid {
+    padding: 60px 0;
+}
+
+.content-grid .container {
+    display: flex;
+    gap: 40px; /* Space between editorial and sidebar */
+}
+
+.editorial-section {
+    flex: 3; /* Takes up more space */
+}
+
+.sidebar-section {
+    flex: 1; /* Takes up less space */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+h2 {
+    color: #f0f0f0;
+    font-size: 1.8em;
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.editorial-section ul,
+.selected-articles ul,
+.activities ul {
+    list-style: disc; /* Or 'none' if you prefer */
+    padding-left: 20px;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+.editorial-section ul li,
+.selected-articles ul li,
+.activities ul li {
+    margin-bottom: 10px;
+}
+
+
+.example-text {
+    font-style: italic;
+    color: #bbb;
+    margin-top: 30px;
+}
+
+.article-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.article-preview {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #555;
+}
+
+.article-box {
+    background-color: #555;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.article-preview .summary {
+    font-size: 0.95em;
+    color: #ccc;
+}
+
+.more-button {
+    background-color: #007bff; /* A nice blue for buttons */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.more-button:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar Specifics */
+.selected-articles,
+.activities {
+    background-color: #2a2a2a;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+/* Footer */
+footer {
+    background-color: #0d0d0d;
+    color: #aaa;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    border-top: 2px solid #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar nav ul {
+        margin-top: 15px;
+    }
+    .navbar nav ul li {
+        margin: 0 10px;
+    }
+    .content-grid .container {
+        flex-direction: column;
+    }
+    .quick-blurb {
+        position: static; /* Stack on smaller screens */
+        transform: none;
+        margin: 20px auto 0; /* Center it */
+        max-width: unset;
+        width: 90%;
+        text-align: center;
+    }
+}
