@@ -230,7 +230,85 @@ footer {
     border-top: 2px solid #333;
 }
 
-/* Responsive adjustments */
+/* ===============================================
+UPDATED STAFF PAGE STYLES
+===============================================
+*/
+
+.staff-page {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.staff-intro {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.staff-card {
+    background-color: #2a2a2a; /* Slightly lighter than page bg */
+    border: 2px solid #444; /* Default border */
+    border-radius: 12px; /* Softer corners */
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* The enhanced hover effect */
+.staff-card:hover {
+    transform: translateY(-8px); /* A more noticeable lift */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+}
+
+.staff-card .role-title {
+    font-size: 1.4em; /* Slightly smaller for balance */
+    margin-top: 0;
+    margin-bottom: 25px; /* More space below title */
+    padding: 8px 16px; /* Makes it a "badge" */
+    border-radius: 20px; /* Pill shape */
+    display: inline-block; /* Allows padding and bg to work */
+    font-weight: bold;
+    color: #111; /* Dark text for contrast on light bg */
+}
+
+.staff-card .staff-name {
+    font-size: 1.15em; /* Slightly larger name */
+    color: #eee; /* Brighter name */
+    margin: 12px 0; /* More spacing between names */
+}
+
+/* Specific colors for role BADGES */
+.staff-card.editor .role-title { background-color: #f28c8c; }
+.staff-card.chemistry .role-title { background-color: #8cb8f2; }
+.staff-card.physics .role-title { background-color: #8cf2b8; }
+.staff-card.graphic .role-title { background-color: #f2e28c; }
+.staff-card.programming .role-title { background-color: #c08cf2; }
+
+/* Match BORDER on hover to the role color */
+.staff-card.editor:hover { border-color: #f28c8c; }
+.staff-card.chemistry:hover { border-color: #8cb8f2; }
+.staff-card.physics:hover { border-color: #8cf2b8; }
+.staff-card.graphic:hover { border-color: #f2e28c; }
+.staff-card.programming:hover { border-color: #c08cf2; }
+
+
+/* ===============================================
+RESPONSIVE STYLES
+===============================================
+*/
+
 @media (max-width: 768px) {
     .navbar .container {
         flex-direction: column;
@@ -252,5 +330,11 @@ footer {
         max-width: unset;
         width: 90%;
         text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .staff-grid {
+        grid-template-columns: 1fr; /* Stack cards on very small screens */
     }
 }
