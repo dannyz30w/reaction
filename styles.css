@@ -1,8 +1,12 @@
+/* ===============================================
+BASE STYLES & LAYOUT (index.html)
+=============================================== */
+
 /* Basic Reset & Body Styling */
 body {
     margin: 0;
-    font-family: Arial, sans-serif; /* Or a font of your choice */
-    background-color: #1a1a1a; /* Dark background */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Slightly more modern font */
+    background-color: #111111; /* Deeper Dark background */
     color: #f0f0f0; /* Light text */
     line-height: 1.6;
 }
@@ -17,7 +21,7 @@ body {
 .navbar {
     background-color: #0d0d0d;
     padding: 15px 0;
-    border-bottom: 2px solid #333;
+    border-bottom: 3px solid #333333; /* Thicker border */
 }
 
 .navbar .container {
@@ -28,9 +32,10 @@ body {
 
 .navbar .logo {
     margin: 0;
-    font-size: 2em;
-    color: #fff;
-    line-height: 1; /* Adjust for multiline logo */
+    font-size: 2.2em; /* Slightly larger logo */
+    color: #ffffff;
+    line-height: 1; 
+    font-weight: 700;
 }
 
 .navbar nav ul {
@@ -41,18 +46,19 @@ body {
 }
 
 .navbar nav ul li {
-    margin-left: 25px;
+    margin-left: 30px;
 }
 
 .navbar nav ul li a {
-    color: #b0b0b0;
+    color: #a0a0a0;
     text-decoration: none;
     font-size: 1.1em;
+    font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .navbar nav ul li a:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
 /* Hero Section */
@@ -62,54 +68,58 @@ body {
 }
 
 .hero-section .cover-display {
-    background-color: #333;
-    border: 2px solid #555;
-    padding: 20px;
-    display: inline-block; /* To center the block itself */
+    background-color: #222222;
+    border: 1px solid #444;
+    padding: 25px;
+    display: inline-block;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero-section .journal-cover {
-    max-width: 300px; /* Adjust size as needed */
+    max-width: 300px;
     height: auto;
     display: block;
-    margin: 0 auto 15px; /* Center image and add space below */
+    margin: 0 auto 15px;
 }
 
 /* Quote Section */
 .quote-section {
-    background-color: #222;
+    background-color: #1a1a1a;
     padding: 50px 0;
     text-align: center;
-    border-top: 1px solid #444;
-    border-bottom: 1px solid #444;
-    position: relative; /* For positioning the quick blurb */
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    position: relative;
 }
 
 .quote-section .quote {
-    font-size: 2.2em;
+    font-family: Georgia, serif; /* Serif font for the quote */
+    font-size: 2.5em;
     font-style: italic;
-    color: #eee;
+    color: #eeeeee;
     margin-bottom: 10px;
 }
 
 .quote-section .author {
-    font-size: 1.3em;
-    color: #aaa;
+    font-size: 1.2em;
+    color: #aaaaaa;
     margin-top: 0;
 }
 
 .quick-blurb {
     position: absolute;
-    left: 20px; /* Adjust as needed */
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #3a3a3a;
+    background-color: #2a2a2a;
     padding: 15px;
     border-radius: 5px;
     font-size: 0.9em;
-    color: #ccc;
+    color: #cccccc;
     text-align: left;
     max-width: 150px;
+    border-left: 3px solid #8cf2b8; /* Green accent */
 }
 .quick-blurb p {
     margin: 5px 0;
@@ -123,101 +133,82 @@ body {
 
 .content-grid .container {
     display: flex;
-    gap: 40px; /* Space between editorial and sidebar */
+    gap: 40px;
 }
 
 .editorial-section {
-    flex: 3; /* Takes up more space */
+    flex: 3;
 }
 
 .sidebar-section {
-    flex: 1; /* Takes up less space */
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
 h2 {
-    color: #f0f0f0;
-    font-size: 1.8em;
+    color: #ffffff;
+    font-size: 2em;
     border-bottom: 2px solid #444;
     padding-bottom: 10px;
     margin-bottom: 25px;
+    font-weight: 600;
 }
 
-.editorial-section ul,
-.selected-articles ul,
-.activities ul {
-    list-style: disc; /* Or 'none' if you prefer */
-    padding-left: 20px;
-    margin-bottom: 20px;
-    color: #ccc;
-}
-.editorial-section ul li,
-.selected-articles ul li,
-.activities ul li {
-    margin-bottom: 10px;
-}
-
-
-.example-text {
-    font-style: italic;
-    color: #bbb;
-    margin-top: 30px;
-}
-
+/* Article Grid Styling */
 .article-preview-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     margin-top: 20px;
 }
 
 .article-preview {
-    background-color: #333;
+    background-color: #222222;
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid #555;
+    border: 1px solid #444;
+    transition: background-color 0.3s;
+}
+.article-preview:hover {
+    background-color: #2a2a2a;
 }
 
 .article-box {
-    background-color: #555;
+    background-color: #3a3a3a;
     color: #fff;
     padding: 15px;
     text-align: center;
     font-weight: bold;
     margin-bottom: 15px;
-    border-radius: 5px;
-}
-
-.article-preview .summary {
-    font-size: 0.95em;
-    color: #ccc;
+    border-radius: 4px;
 }
 
 .more-button {
-    background-color: #007bff; /* A nice blue for buttons */
-    color: white;
+    background-color: #f2e28c; /* Yellow accent color */
+    color: #111111;
     padding: 12px 25px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1em;
+    font-weight: bold;
     margin-top: 30px;
     transition: background-color 0.3s ease;
 }
 
 .more-button:hover {
-    background-color: #0056b3;
+    background-color: #ffd700;
 }
 
 /* Sidebar Specifics */
 .selected-articles,
 .activities {
-    background-color: #2a2a2a;
+    background-color: #1a1a1a;
     padding: 25px;
     border-radius: 8px;
-    border: 1px solid #444;
+    border: 1px solid #333;
 }
 
 /* Footer */
@@ -227,13 +218,12 @@ footer {
     text-align: center;
     padding: 20px 0;
     margin-top: 50px;
-    border-top: 2px solid #333;
+    border-top: 3px solid #333;
 }
 
 /* ===============================================
 UPDATED STAFF PAGE STYLES
-===============================================
-*/
+=============================================== */
 
 .staff-page {
     padding: 60px 0;
@@ -247,6 +237,7 @@ UPDATED STAFF PAGE STYLES
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    font-style: italic;
 }
 
 .staff-grid {
@@ -257,91 +248,64 @@ UPDATED STAFF PAGE STYLES
 }
 
 .staff-card {
-    background-color: #2a2a2a; /* Slightly lighter than page bg */
-    border: 2px solid #444; /* Default border */
-    border-radius: 12px; /* Softer corners */
-    padding: 30px;
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 10px; 
+    padding: 40px 20px; /* More vertical padding */
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* The enhanced hover effect */
 .staff-card:hover {
-    transform: translateY(-8px); /* A more noticeable lift */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
 .staff-card .role-title {
-    font-size: 1.4em; /* Slightly smaller for balance */
+    font-size: 1.2em;
     margin-top: 0;
-    margin-bottom: 25px; /* More space below title */
-    padding: 8px 16px; /* Makes it a "badge" */
-    border-radius: 20px; /* Pill shape */
-    display: inline-block; /* Allows padding and bg to work */
+    margin-bottom: 25px;
+    padding: 6px 14px; 
+    border-radius: 20px;
+    display: inline-block;
     font-weight: bold;
-    color: #111; /* Dark text for contrast on light bg */
+    color: #111; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .staff-card .staff-name {
-    font-size: 1.15em; /* Slightly larger name */
-    color: #eee; /* Brighter name */
-    margin: 12px 0; /* More spacing between names */
+    font-size: 1.1em;
+    color: #eee;
+    margin: 10px 0;
+    line-height: 1.4;
 }
 
-/* Specific colors for role BADGES */
-.staff-card.editor .role-title { background-color: #f28c8c; }
-.staff-card.chemistry .role-title { background-color: #8cb8f2; }
-.staff-card.physics .role-title { background-color: #8cf2b8; }
-.staff-card.graphic .role-title { background-color: #f2e28c; }
-.staff-card.programming .role-title { background-color: #c08cf2; }
+/* Define Role Colors */
+.color-editor { --role-color: #f28c8c; }
+.color-chemistry { --role-color: #8cb8f2; }
+.color-physics { --role-color: #8cf2b8; }
+.color-graphic { --role-color: #f2e28c; }
+.color-programming { --role-color: #c08cf2; }
 
-/* Match BORDER on hover to the role color */
+/* Apply Colors using variables for cleaner code */
+.staff-card.editor .role-title { background-color: var(--role-color); }
+.staff-card.chemistry .role-title { background-color: var(--role-color); }
+.staff-card.physics .role-title { background-color: var(--role-color); }
+.staff-card.graphic .role-title { background-color: var(--role-color); }
+.staff-card.programming .role-title { background-color: var(--role-color); }
+
+/* Apply Hover Border */
 .staff-card.editor:hover { border-color: #f28c8c; }
 .staff-card.chemistry:hover { border-color: #8cb8f2; }
 .staff-card.physics:hover { border-color: #8cf2b8; }
 .staff-card.graphic:hover { border-color: #f2e28c; }
 .staff-card.programming:hover { border-color: #c08cf2; }
 
-
 /* ===============================================
-RESPONSIVE STYLES
-===============================================
-*/
-
-@media (max-width: 768px) {
-    .navbar .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .navbar nav ul {
-        margin-top: 15px;
-    }
-    .navbar nav ul li {
-        margin: 0 10px;
-    }
-    .content-grid .container {
-        flex-direction: column;
-    }
-    .quick-blurb {
-        position: static; /* Stack on smaller screens */
-        transform: none;
-        margin: 20px auto 0; /* Center it */
-        max-width: unset;
-        width: 90%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .staff-grid {
-        grid-template-columns: 1fr; /* Stack cards on very small screens */
-    }
-}
-/* ===============================================
-ABOUT PAGE STYLES
-===============================================
-*/
+UPDATED ABOUT PAGE STYLES
+=============================================== */
 
 .about-page {
     padding: 60px 0;
@@ -355,34 +319,43 @@ ABOUT PAGE STYLES
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 40px;
+    padding-bottom: 15px; /* Adjust padding for a cleaner line */
+    border-bottom: 3px solid #333;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-content {
-    background-color: #2a2a2a;
-    padding: 40px;
+    background-color: #1a1a1a;
+    padding: 50px; /* More padding */
     border-radius: 12px;
-    border: 1px solid #444;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .about-content p {
     font-size: 1.15em;
     line-height: 1.7;
     color: #ddd;
-    margin-bottom: 25px;
+    margin-bottom: 30px; 
 }
 
 .about-content .meeting-info {
-    font-style: italic;
+    font-style: normal; /* Remove italic */
     color: #8cf2b8; /* Green accent */
-    font-weight: bold;
+    font-weight: 600;
+    border-top: 1px solid #333; /* Separator line */
+    padding-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 0;
 }
 
 .award-box {
-    background-color: #333;
+    background-color: #222222;
     border-left: 5px solid #f2e28c; /* Yellow accent */
     padding: 25px 30px;
-    margin-top: 40px;
+    margin-top: 50px; /* More space above award box */
     border-radius: 8px;
 }
 
@@ -391,6 +364,8 @@ ABOUT PAGE STYLES
     font-size: 1.4em;
     color: #f2e28c;
     margin-bottom: 15px;
+    border-bottom: none; /* Remove h2 border from h3 */
+    padding-bottom: 0;
 }
 
 .award-box p {
@@ -400,15 +375,14 @@ ABOUT PAGE STYLES
 }
 
 .award-box p strong {
-    color: #fff;
-    font-weight: 600;
+    color: #ffffff;
+    font-weight: 700;
 }
 
 
 /* ===============================================
-PAST EDITIONS PAGE STYLES
-===============================================
-*/
+PAST EDITIONS PAGE STYLES (Retained for completeness)
+=============================================== */
 
 .editions-page {
     padding: 60px 0;
@@ -427,7 +401,7 @@ PAST EDITIONS PAGE STYLES
 }
 
 .edition-card {
-    background-color: #2a2a2a;
+    background-color: #1a1a1a;
     padding: 25px;
     border-radius: 10px;
     border: 1px solid #444;
@@ -439,17 +413,16 @@ PAST EDITIONS PAGE STYLES
 .edition-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-    border-color: #8cb8f2; /* Light blue on hover */
+    border-color: #8cb8f2;
 }
 
-/* Specific styling for highlighted cards */
 .edition-card.recent {
-    border: 2px solid #f28c8c; /* Red/Pink accent for most recent */
+    border: 2px solid #f28c8c; 
     box-shadow: 0 0 15px rgba(242, 140, 140, 0.3);
 }
 
 .edition-card.award-winning {
-    border: 2px solid #f2e28c; /* Yellow accent for award winner */
+    border: 2px solid #f2e28c;
 }
 
 .edition-card h3 {
@@ -470,7 +443,7 @@ PAST EDITIONS PAGE STYLES
 
 .download-button {
     display: inline-block;
-    background-color: #007bff; /* Primary blue button color */
+    background-color: #007bff; 
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -485,8 +458,36 @@ PAST EDITIONS PAGE STYLES
     background-color: #0056b3;
 }
 
-/* Responsive adjustment */
+/* ===============================================
+RESPONSIVE STYLES
+=============================================== */
+
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar nav ul {
+        margin-top: 15px;
+    }
+    .navbar nav ul li {
+        margin: 0 10px;
+    }
+    .content-grid .container {
+        flex-direction: column;
+    }
+    .quick-blurb {
+        position: static;
+        transform: none;
+        margin: 20px auto 0;
+        max-width: unset;
+        width: 90%;
+        text-align: center;
+    }
+}
+
 @media (max-width: 600px) {
+    .staff-grid,
     .edition-grid {
         grid-template-columns: 1fr;
     }
