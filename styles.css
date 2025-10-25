@@ -222,7 +222,7 @@ footer {
 }
 
 /* ===============================================
-UPDATED STAFF PAGE STYLES
+IMPROVED STAFF PAGE STYLES
 =============================================== */
 
 .staff-page {
@@ -248,55 +248,62 @@ UPDATED STAFF PAGE STYLES
 }
 
 .staff-card {
-    background-color: #1a1a1a;
-    border: 1px solid #444;
+    /* Significantly brighter background for contrast */
+    background-color: #1a1a1a; 
+    border: 1px solid #333; /* Softer border */
     border-radius: 10px; 
-    padding: 40px 20px; /* More vertical padding */
+    padding: 40px 20px; 
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    /* Stronger, more noticeable shadow */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .staff-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    /* Lighter border and shadow for a "lifted" effect */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7); 
 }
 
 .staff-card .role-title {
-    font-size: 1.2em;
+    font-size: 1.3em; /* Slightly larger, clearer title */
     margin-top: 0;
     margin-bottom: 25px;
     padding: 6px 14px; 
-    border-radius: 20px;
+    border-radius: 4px; /* Square/Subtle badge for professional look */
     display: inline-block;
-    font-weight: bold;
-    color: #111; 
+    font-weight: 700; /* Bold title */
+    color: #111111; /* Dark text on colored background for HIGH CONTRAST */
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 .staff-card .staff-name {
     font-size: 1.1em;
-    color: #eee;
+    color: #ffffff; /* PURE WHITE for highest name contrast */
     margin: 10px 0;
     line-height: 1.4;
+    font-weight: 400;
+}
+.staff-card .staff-name:first-of-type {
+    font-weight: 600; /* Bold the first name/leader in the list */
 }
 
 /* Define Role Colors */
-.color-editor { --role-color: #f28c8c; }
-.color-chemistry { --role-color: #8cb8f2; }
-.color-physics { --role-color: #8cf2b8; }
-.color-graphic { --role-color: #f2e28c; }
-.color-programming { --role-color: #c08cf2; }
+.color-editor { --role-color: #f28c8c; } /* Soft Red/Pink */
+.color-chemistry { --role-color: #8cb8f2; } /* Soft Blue */
+.color-physics { --role-color: #8cf2b8; } /* Soft Green */
+.color-graphic { --role-color: #f2e28c; } /* Soft Yellow */
+.color-programming { --role-color: #c08cf2; } /* Soft Purple */
 
-/* Apply Colors using variables for cleaner code */
+/* Apply Colors using variables */
 .staff-card.editor .role-title { background-color: var(--role-color); }
 .staff-card.chemistry .role-title { background-color: var(--role-color); }
 .staff-card.physics .role-title { background-color: var(--role-color); }
 .staff-card.graphic .role-title { background-color: var(--role-color); }
 .staff-card.programming .role-title { background-color: var(--role-color); }
 
-/* Apply Hover Border */
+/* Apply Hover Border - Border gets colored on hover */
 .staff-card.editor:hover { border-color: #f28c8c; }
 .staff-card.chemistry:hover { border-color: #8cb8f2; }
 .staff-card.physics:hover { border-color: #8cf2b8; }
@@ -304,7 +311,7 @@ UPDATED STAFF PAGE STYLES
 .staff-card.programming:hover { border-color: #c08cf2; }
 
 /* ===============================================
-UPDATED ABOUT PAGE STYLES
+ABOUT PAGE STYLES
 =============================================== */
 
 .about-page {
@@ -319,7 +326,7 @@ UPDATED ABOUT PAGE STYLES
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 40px;
-    padding-bottom: 15px; /* Adjust padding for a cleaner line */
+    padding-bottom: 15px;
     border-bottom: 3px solid #333;
     width: fit-content;
     margin-left: auto;
@@ -328,7 +335,7 @@ UPDATED ABOUT PAGE STYLES
 
 .about-content {
     background-color: #1a1a1a;
-    padding: 50px; /* More padding */
+    padding: 50px;
     border-radius: 12px;
     border: 1px solid #333;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
@@ -342,10 +349,10 @@ UPDATED ABOUT PAGE STYLES
 }
 
 .about-content .meeting-info {
-    font-style: normal; /* Remove italic */
-    color: #8cf2b8; /* Green accent */
+    font-style: normal;
+    color: #8cf2b8;
     font-weight: 600;
-    border-top: 1px solid #333; /* Separator line */
+    border-top: 1px solid #333;
     padding-top: 20px;
     margin-top: 30px;
     margin-bottom: 0;
@@ -353,9 +360,9 @@ UPDATED ABOUT PAGE STYLES
 
 .award-box {
     background-color: #222222;
-    border-left: 5px solid #f2e28c; /* Yellow accent */
+    border-left: 5px solid #f2e28c;
     padding: 25px 30px;
-    margin-top: 50px; /* More space above award box */
+    margin-top: 50px;
     border-radius: 8px;
 }
 
@@ -364,7 +371,7 @@ UPDATED ABOUT PAGE STYLES
     font-size: 1.4em;
     color: #f2e28c;
     margin-bottom: 15px;
-    border-bottom: none; /* Remove h2 border from h3 */
+    border-bottom: none;
     padding-bottom: 0;
 }
 
@@ -378,6 +385,8 @@ UPDATED ABOUT PAGE STYLES
     color: #ffffff;
     font-weight: 700;
 }
+
+
 /* ===============================================
 PAST EDITIONS PAGE STYLES
 =============================================== */
@@ -404,7 +413,7 @@ PAST EDITIONS PAGE STYLES
     border-radius: 10px;
     border: 1px solid #444;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    text-align: center; /* Center image and button */
+    text-align: center;
 }
 
 .edition-card:hover {
@@ -413,18 +422,16 @@ PAST EDITIONS PAGE STYLES
     border-color: #8cb8f2;
 }
 
-/* New CSS to display the cover image cleanly */
 .edition-cover {
     width: 100%;
-    max-height: 350px; /* Limits the height of the cover image */
-    object-fit: contain; /* Ensures the whole image is visible */
+    max-height: 350px;
+    object-fit: contain;
     margin-bottom: 20px;
     border: 1px solid #333;
     border-radius: 4px;
-    background-color: #0d0d0d; /* Background color for images with transparent parts */
+    background-color: #0d0d0d;
 }
 
-/* Specific styling for highlighted cards */
 .edition-card.recent {
     border: 2px solid #f28c8c; 
     box-shadow: 0 0 15px rgba(242, 140, 140, 0.3);
@@ -438,18 +445,17 @@ PAST EDITIONS PAGE STYLES
     color: #8cb8f2;
     margin-top: 0;
     font-size: 1.4em;
-    margin-bottom: 20px; /* Increased space before image */
+    margin-bottom: 20px;
     border-bottom: 1px dashed #444;
     padding-bottom: 10px;
 }
 
-/* Hiding the summary paragraph, as it's no longer used */
 .edition-card p {
     display: none;
 }
 
 .download-button {
-    display: block; /* Make the button full width of the card padding */
+    display: block;
     width: 90%;
     margin: 0 auto;
     background-color: #007bff; 
@@ -466,11 +472,37 @@ PAST EDITIONS PAGE STYLES
     background-color: #0056b3;
 }
 
-/* Responsive adjustment (Retained) */
+/* ===============================================
+RESPONSIVE STYLES
+=============================================== */
+
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar nav ul {
+        margin-top: 15px;
+    }
+    .navbar nav ul li {
+        margin: 0 10px;
+    }
+    .content-grid .container {
+        flex-direction: column;
+    }
+    .quick-blurb {
+        position: static;
+        transform: none;
+        margin: 20px auto 0;
+        max-width: unset;
+        width: 90%;
+        text-align: center;
+    }
+}
+
 @media (max-width: 600px) {
+    .staff-grid,
     .edition-grid {
         grid-template-columns: 1fr;
     }
 }
-
-
