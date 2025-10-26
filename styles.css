@@ -463,6 +463,12 @@ STAFF PAGE STYLES (staff.html)
     letter-spacing: 1.5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
+/* Update this block in your CSS */
+.staff-card.programming .role-title { 
+    background-color: var(--role-color); 
+    /* ADD THIS LINE to make the text white/light against the dark purple */
+    color: #ffffff;
+}
 
 .staff-card .staff-name {
     font-size: 1.15em;
