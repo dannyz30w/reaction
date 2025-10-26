@@ -12,64 +12,70 @@ COLOR PALETTE & VARIABLES
     --accent-yellow: #f2e28c;
     --accent-green: #8cf2b8;
     --accent-red: #f28c8c;
-    --accent-purple: #c08cf2;
+    --accent-purple: #c08cf2; /* Purple Accent */
     --border-subtle: #333;
 }
 
 /* ===============================================
-BASE STYLES & ENHANCED COSMIC BACKGROUND
+BASE STYLES & COSMIC BACKGROUND
 =============================================== */
 
 body {
     margin: 0;
     font-family: 'Helvetica Neue', Arial, sans-serif;
+    /* --- ENHANCED COSMIC BACKGROUND --- */
     background: 
-        radial-gradient(ellipse at 15% 25%, rgba(140, 184, 242, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 85% 75%, rgba(192, 140, 242, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(140, 242, 184, 0.08) 0%, transparent 55%),
-        radial-gradient(ellipse at 10% 85%, rgba(242, 140, 140, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse at 90% 15%, rgba(242, 228, 140, 0.1) 0%, transparent 45%),
-        #080510;
+        radial-gradient(ellipse at 20% 30%, rgba(140, 184, 242, 0.2) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 70%, rgba(192, 140, 242, 0.2) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 50%, rgba(140, 242, 184, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 10% 80%, rgba(242, 140, 140, 0.15) 0%, transparent 45%),
+        linear-gradient(180deg, #0a0515 0%, #0d0a1a 30%, #120a20 60%, #0a0a14 100%);
     background-attachment: fixed;
     position: relative;
+    /* --- END COSMIC BACKGROUND --- */
     color: var(--text-light);
     line-height: 1.65;
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
-/* Shooting stars animation */
+/* Dense starfield layer 1 - Small stars */
 body::before {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
-    width: 300%;
-    height: 300%;
+    width: 100%;
+    height: 100%;
     background-image: 
-        radial-gradient(2px 2px at 20% 30%, white, transparent),
-        radial-gradient(2px 2px at 60% 70%, white, transparent),
-        radial-gradient(1px 1px at 50% 50%, white, transparent),
-        radial-gradient(1px 1px at 80% 10%, white, transparent),
-        radial-gradient(2px 2px at 90% 60%, white, transparent),
-        radial-gradient(1px 1px at 33% 80%, white, transparent),
-        radial-gradient(1px 1px at 15% 95%, white, transparent),
-        radial-gradient(1px 1px at 45% 20%, white, transparent),
-        radial-gradient(1px 1px at 25% 60%, white, transparent),
-        radial-gradient(2px 2px at 75% 40%, white, transparent),
-        radial-gradient(1px 1px at 65% 85%, white, transparent),
-        radial-gradient(1px 1px at 10% 40%, white, transparent),
-        radial-gradient(2px 2px at 40% 10%, white, transparent),
-        radial-gradient(1px 1px at 85% 90%, white, transparent),
-        radial-gradient(1px 1px at 55% 65%, white, transparent);
-    background-size: 300% 300%;
-    animation: stars-rotate 240s linear infinite;
+        radial-gradient(1px 1px at 10% 20%, white, transparent),
+        radial-gradient(1px 1px at 25% 15%, white, transparent),
+        radial-gradient(1px 1px at 40% 30%, white, transparent),
+        radial-gradient(1px 1px at 55% 10%, white, transparent),
+        radial-gradient(1px 1px at 70% 25%, white, transparent),
+        radial-gradient(1px 1px at 85% 18%, white, transparent),
+        radial-gradient(1px 1px at 15% 45%, white, transparent),
+        radial-gradient(1px 1px at 30% 60%, white, transparent),
+        radial-gradient(1px 1px at 45% 55%, white, transparent),
+        radial-gradient(1px 1px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 75% 65%, white, transparent),
+        radial-gradient(1px 1px at 90% 75%, white, transparent),
+        radial-gradient(1px 1px at 20% 85%, white, transparent),
+        radial-gradient(1px 1px at 35% 90%, white, transparent),
+        radial-gradient(1px 1px at 50% 95%, white, transparent),
+        radial-gradient(1px 1px at 65% 88%, white, transparent),
+        radial-gradient(1px 1px at 80% 92%, white, transparent),
+        radial-gradient(1px 1px at 5% 50%, white, transparent),
+        radial-gradient(1px 1px at 95% 40%, white, transparent),
+        radial-gradient(1px 1px at 12% 65%, white, transparent);
+    background-size: 250% 250%;
+    background-position: 0% 0%;
+    animation: twinkle-small 6s ease-in-out infinite;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.4;
+    opacity: 0.7;
 }
 
-/* Twinkling stars layer */
+/* Dense starfield layer 2 - Medium stars */
 body::after {
     content: '';
     position: fixed;
@@ -78,61 +84,37 @@ body::after {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(2px 2px at 12% 22%, rgba(140, 184, 242, 0.9), transparent),
-        radial-gradient(1.5px 1.5px at 34% 18%, rgba(255, 255, 255, 0.8), transparent),
-        radial-gradient(2px 2px at 52% 33%, rgba(192, 140, 242, 0.85), transparent),
-        radial-gradient(1.5px 1.5px at 68% 12%, rgba(140, 242, 184, 0.8), transparent),
-        radial-gradient(2px 2px at 82% 25%, rgba(242, 228, 140, 0.9), transparent),
-        radial-gradient(1.5px 1.5px at 18% 48%, rgba(255, 255, 255, 0.85), transparent),
-        radial-gradient(2px 2px at 38% 62%, rgba(140, 184, 242, 0.8), transparent),
-        radial-gradient(1.5px 1.5px at 56% 72%, rgba(192, 140, 242, 0.85), transparent),
-        radial-gradient(2px 2px at 72% 58%, rgba(255, 255, 255, 0.9), transparent),
-        radial-gradient(1.5px 1.5px at 88% 68%, rgba(140, 242, 184, 0.8), transparent),
-        radial-gradient(2px 2px at 22% 78%, rgba(242, 228, 140, 0.85), transparent),
-        radial-gradient(1.5px 1.5px at 42% 88%, rgba(255, 255, 255, 0.8), transparent),
-        radial-gradient(2px 2px at 62% 82%, rgba(140, 184, 242, 0.9), transparent),
-        radial-gradient(1.5px 1.5px at 78% 92%, rgba(192, 140, 242, 0.85), transparent),
-        radial-gradient(2px 2px at 8% 65%, rgba(140, 242, 184, 0.8), transparent),
-        radial-gradient(1.5px 1.5px at 92% 45%, rgba(255, 255, 255, 0.85), transparent),
-        radial-gradient(2px 2px at 28% 38%, rgba(242, 228, 140, 0.8), transparent),
-        radial-gradient(1.5px 1.5px at 48% 8%, rgba(140, 184, 242, 0.9), transparent);
-    background-size: 100% 100%;
-    animation: stars-twinkle 4s ease-in-out infinite;
+        radial-gradient(2px 2px at 15% 25%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(2px 2px at 35% 20%, rgba(140, 184, 242, 0.8), transparent),
+        radial-gradient(1.5px 1.5px at 50% 35%, rgba(255, 255, 255, 0.85), transparent),
+        radial-gradient(2px 2px at 65% 15%, rgba(192, 140, 242, 0.8), transparent),
+        radial-gradient(1.5px 1.5px at 80% 28%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(2px 2px at 22% 50%, rgba(140, 242, 184, 0.75), transparent),
+        radial-gradient(1.5px 1.5px at 42% 62%, rgba(255, 255, 255, 0.85), transparent),
+        radial-gradient(2px 2px at 58% 70%, rgba(242, 228, 140, 0.8), transparent),
+        radial-gradient(1.5px 1.5px at 72% 58%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(2px 2px at 88% 68%, rgba(140, 184, 242, 0.8), transparent),
+        radial-gradient(1.5px 1.5px at 18% 78%, rgba(255, 255, 255, 0.85), transparent),
+        radial-gradient(2px 2px at 38% 88%, rgba(192, 140, 242, 0.8), transparent),
+        radial-gradient(1.5px 1.5px at 55% 82%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(2px 2px at 68% 92%, rgba(140, 242, 184, 0.75), transparent),
+        radial-gradient(1.5px 1.5px at 82% 85%, rgba(255, 255, 255, 0.85), transparent);
+    background-size: 300% 300%;
+    background-position: 50% 50%;
+    animation: twinkle-medium 8s ease-in-out infinite 2s;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
-@keyframes stars-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+@keyframes twinkle-small {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 0.4; }
 }
 
-@keyframes stars-twinkle {
-    0%, 100% { opacity: 0.6; }
-    25% { opacity: 0.3; }
-    50% { opacity: 0.8; }
-    75% { opacity: 0.4; }
-}
-
-/* Floating particles */
-@keyframes float-particle {
-    0%, 100% { 
-        transform: translateY(0) translateX(0); 
-        opacity: 0.3;
-    }
-    25% { 
-        transform: translateY(-20px) translateX(10px); 
-        opacity: 0.6;
-    }
-    50% { 
-        transform: translateY(-40px) translateX(-5px); 
-        opacity: 0.8;
-    }
-    75% { 
-        transform: translateY(-20px) translateX(-10px); 
-        opacity: 0.5;
-    }
+@keyframes twinkle-medium {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
 }
 
 /* Ensure content stays above background */
@@ -142,20 +124,18 @@ body::after {
 }
 
 /* ===============================================
-TYPOGRAPHY WITH GLOW EFFECTS
+TYPOGRAPHY
 =============================================== */
 
 a {
     color: var(--accent-blue);
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a:hover {
     color: #b4d4ff;
-    text-shadow: 0 0 12px rgba(140, 184, 242, 0.6);
-    transform: translateY(-1px);
+    text-shadow: 0 0 8px rgba(140, 184, 242, 0.5);
 }
 
 .container {
@@ -172,40 +152,19 @@ h2 {
     padding-bottom: 15px;
     margin-bottom: 40px;
     text-align: center;
-    text-shadow: 0 0 20px rgba(140, 184, 242, 0.4);
-    animation: glow-pulse 3s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-    0%, 100% { text-shadow: 0 0 20px rgba(140, 184, 242, 0.4); }
-    50% { text-shadow: 0 0 30px rgba(140, 184, 242, 0.6), 0 0 40px rgba(140, 184, 242, 0.3); }
+    text-shadow: 0 0 20px rgba(140, 184, 242, 0.3);
 }
 
 /* ===============================================
-NAVBAR WITH COSMIC EFFECTS
+NAVBAR & FOOTER
 =============================================== */
 
 .navbar {
-    background: rgba(8, 5, 16, 0.85);
-    backdrop-filter: blur(15px) saturate(180%);
+    background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(20, 15, 30, 0.95) 100%);
+    backdrop-filter: blur(10px);
     padding: 20px 0;
-    border-bottom: 1px solid rgba(140, 184, 242, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 40px rgba(140, 184, 242, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    animation: navbar-slide-down 0.6s ease-out;
-}
-
-@keyframes navbar-slide-down {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    border-bottom: 2px solid rgba(140, 184, 242, 0.3); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(140, 184, 242, 0.1);
 }
 
 .navbar .container {
@@ -220,13 +179,7 @@ NAVBAR WITH COSMIC EFFECTS
     color: #ffffff;
     line-height: 1; 
     font-weight: 900;
-    text-shadow: 0 0 25px rgba(140, 184, 242, 0.6), 0 0 50px rgba(140, 184, 242, 0.3);
-    animation: logo-glow 2s ease-in-out infinite;
-}
-
-@keyframes logo-glow {
-    0%, 100% { text-shadow: 0 0 25px rgba(140, 184, 242, 0.6), 0 0 50px rgba(140, 184, 242, 0.3); }
-    50% { text-shadow: 0 0 35px rgba(140, 184, 242, 0.8), 0 0 70px rgba(140, 184, 242, 0.4); }
+    text-shadow: 0 0 20px rgba(140, 184, 242, 0.5);
 }
 
 .navbar nav ul {
@@ -245,106 +198,66 @@ NAVBAR WITH COSMIC EFFECTS
     text-decoration: none;
     font-size: 1.15em;
     font-weight: 500;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     padding-bottom: 5px;
     position: relative;
-    display: inline-block;
 }
 
-.navbar nav ul li a::before {
+.navbar nav ul li a::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 50%;
+    left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-blue);
-    box-shadow: 0 0 10px var(--accent-blue);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    transition: width 0.3s ease;
 }
 
 .navbar nav ul li a:hover {
     color: var(--accent-blue);
 }
 
-.navbar nav ul li a:hover::before {
+.navbar nav ul li a:hover::after {
     width: 100%;
 }
 
 footer {
-    background: rgba(8, 5, 16, 0.85);
-    backdrop-filter: blur(15px) saturate(180%);
+    background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(20, 15, 30, 0.95) 100%);
+    backdrop-filter: blur(10px);
     color: #777;
     text-align: center;
     padding: 30px 0;
     margin-top: 50px;
-    border-top: 1px solid rgba(140, 184, 242, 0.2);
+    border-top: 2px solid rgba(140, 184, 242, 0.3);
     font-size: 0.9em;
-    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.7);
 }
 
 /* ===============================================
-HERO SECTION WITH COSMIC ANIMATIONS
+HOMEPAGE STYLES (index.html)
 =============================================== */
 
+/* Hero Section */
 .hero-section {
     padding: 80px 0;
     text-align: center;
-    animation: fade-in-up 0.8s ease-out;
-}
-
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .hero-section .cover-display {
-    background: rgba(13, 10, 26, 0.6);
-    backdrop-filter: blur(20px) saturate(150%);
-    border: 1px solid rgba(140, 184, 242, 0.3);
-    padding: 40px;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(30, 25, 40, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(140, 184, 242, 0.3);
+    padding: 30px;
     display: inline-block;
-    border-radius: 20px;
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.6),
-        0 0 60px rgba(140, 184, 242, 0.2),
-        inset 0 0 60px rgba(140, 184, 242, 0.05);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-section .cover-display::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(140, 184, 242, 0.1) 0%, transparent 70%);
-    animation: rotate-glow 10s linear infinite;
-    pointer-events: none;
-}
-
-@keyframes rotate-glow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 40px rgba(140, 184, 242, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-section .cover-display:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 
-        0 16px 48px rgba(0, 0, 0, 0.8),
-        0 0 80px rgba(140, 184, 242, 0.4),
-        inset 0 0 80px rgba(140, 184, 242, 0.08);
-    border-color: rgba(140, 184, 242, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 60px rgba(140, 184, 242, 0.3);
 }
 
 .hero-section .journal-title {
@@ -352,97 +265,54 @@ HERO SECTION WITH COSMIC ANIMATIONS
     font-size: 2.2em;
     margin-top: 0;
     margin-bottom: 20px;
-    text-shadow: 
-        0 0 20px rgba(242, 228, 140, 0.6),
-        0 0 40px rgba(242, 228, 140, 0.3);
-    animation: title-float 3s ease-in-out infinite;
-}
-
-@keyframes title-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+    text-shadow: 0 0 15px rgba(242, 228, 140, 0.5);
 }
 
 .hero-section .journal-cover {
     max-width: 320px;
     height: auto;
     display: block;
-    margin: 0 auto 20px auto;
-    border-radius: 12px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    margin: 0 auto 20px auto; 
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
 }
 
 .hero-section .cover-link:hover .journal-cover {
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: 
-        0 12px 36px rgba(0, 0, 0, 0.6),
-        0 0 40px rgba(140, 184, 242, 0.4);
+    box-shadow: 0 0 20px rgba(140, 184, 242, 0.5);
 }
 
 .download-button {
-    background: var(--accent-yellow);
-    color: #0a0a0a;
-    padding: 15px 35px;
+    background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffd700 100%);
+    color: #111111;
+    padding: 15px 30px;
     border: none;
-    border-radius: 50px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 1.1em;
     font-weight: 700;
     margin-top: 20px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 
-        0 4px 20px rgba(242, 228, 140, 0.4),
-        0 0 40px rgba(242, 228, 140, 0.2);
-    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(242, 228, 140, 0.3);
+    display: inline-block; 
     text-decoration: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.download-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.download-button:hover::before {
-    width: 300px;
-    height: 300px;
 }
 
 .download-button:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 
-        0 8px 30px rgba(242, 228, 140, 0.6),
-        0 0 60px rgba(242, 228, 140, 0.4);
-    color: #0a0a0a;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(242, 228, 140, 0.5);
 }
 
-.download-button:active {
-    transform: translateY(-1px) scale(1.02);
-}
 
-/* ===============================================
-QUOTE SECTION WITH ETHEREAL EFFECTS
-=============================================== */
-
+/* Quote Section */
 .quote-section {
-    background: rgba(13, 10, 26, 0.5);
-    backdrop-filter: blur(15px) saturate(150%);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(30, 25, 40, 0.7) 100%);
+    backdrop-filter: blur(10px);
     padding: 70px 0;
     text-align: center;
     border-top: 1px solid rgba(140, 184, 242, 0.2);
     border-bottom: 1px solid rgba(140, 184, 242, 0.2);
     position: relative;
-    margin: 40px 0;
 }
 
 .quote-section .quote {
@@ -452,26 +322,7 @@ QUOTE SECTION WITH ETHEREAL EFFECTS
     color: #eeeeee;
     margin-bottom: 15px;
     font-weight: 300;
-    text-shadow: 
-        0 0 20px rgba(255, 255, 255, 0.4),
-        0 0 40px rgba(140, 184, 242, 0.3),
-        0 0 60px rgba(192, 140, 242, 0.2);
-    animation: quote-glow 4s ease-in-out infinite;
-}
-
-@keyframes quote-glow {
-    0%, 100% { 
-        text-shadow: 
-            0 0 20px rgba(255, 255, 255, 0.4),
-            0 0 40px rgba(140, 184, 242, 0.3),
-            0 0 60px rgba(192, 140, 242, 0.2);
-    }
-    50% { 
-        text-shadow: 
-            0 0 30px rgba(255, 255, 255, 0.6),
-            0 0 60px rgba(140, 184, 242, 0.5),
-            0 0 90px rgba(192, 140, 242, 0.3);
-    }
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6),                 0 0 30px rgba(140, 184, 242, 0.5),                 0 0 45px rgba(192, 140, 242, 0.3);
 }
 
 .quote-section .author {
@@ -485,36 +336,23 @@ QUOTE SECTION WITH ETHEREAL EFFECTS
     position: static;
     transform: none;
     margin: 0 auto;
-    background: rgba(20, 16, 35, 0.6);
-    backdrop-filter: blur(10px);
-    padding: 25px;
-    border-radius: 15px;
-    font-size: 1.1em;
+    background: linear-gradient(135deg, rgba(42, 42, 42, 0.8) 0%, rgba(45, 35, 60, 0.8) 100%);
+    backdrop-filter: blur(8px);
+    padding: 18px;
+    border-radius: 8px;
+    font-size: 1em;
     color: #cccccc;
     text-align: center;
-    max-width: 700px;
-    border-left: 4px solid var(--accent-green);
-    box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(140, 242, 184, 0.15);
-    transition: all 0.4s ease;
-}
-
-.quick-blurb:hover {
-    transform: translateY(-3px);
-    box-shadow: 
-        0 6px 25px rgba(0, 0, 0, 0.5),
-        0 0 40px rgba(140, 242, 184, 0.25);
+    max-width: 600px;
+    border-left: 5px solid var(--accent-green);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(140, 242, 184, 0.1);
 }
 
 .quick-blurb p {
     margin: 0;
 }
 
-/* ===============================================
-CONTENT GRID WITH STAGGERED ANIMATIONS
-=============================================== */
-
+/* Content Grid (Editorial and Sidebar) */
 .content-grid {
     padding: 60px 0;
 }
@@ -532,76 +370,38 @@ CONTENT GRID WITH STAGGERED ANIMATIONS
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 40px; /* Increased gap for better separation */
 }
 
-/* ===============================================
-ARTICLE CARDS WITH COSMIC HOVER EFFECTS
-=============================================== */
-
+/* Article Grid and Card Styles */
 .article-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     gap: 25px;
     margin-top: 20px;
 }
 
 .picks-grid {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stacks the two editor's picks vertically */
     gap: 25px;
 }
 
 .article-card {
-    background: rgba(13, 10, 26, 0.6);
-    backdrop-filter: blur(15px) saturate(120%);
-    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(30, 25, 40, 0.8) 100%);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
     border: 1px solid rgba(140, 184, 242, 0.2);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-    position: relative;
-    animation: card-fade-in 0.6s ease-out backwards;
-}
-
-.article-card:nth-child(1) { animation-delay: 0.1s; }
-.article-card:nth-child(2) { animation-delay: 0.2s; }
-.article-card:nth-child(3) { animation-delay: 0.3s; }
-.article-card:nth-child(4) { animation-delay: 0.4s; }
-
-@keyframes card-fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.article-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(140, 184, 242, 0.1), transparent);
-    transition: left 0.6s ease;
-}
-
-.article-card:hover::before {
-    left: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    overflow: hidden; /* Ensures image corners are contained */
 }
 
 .article-card:hover {
-    background: rgba(20, 16, 35, 0.7);
-    border-color: rgba(140, 184, 242, 0.5);
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.6),
-        0 0 40px rgba(140, 184, 242, 0.3);
+    background: linear-gradient(135deg, rgba(42, 42, 42, 0.9) 0%, rgba(45, 35, 60, 0.9) 100%);
+    border-color: rgba(140, 184, 242, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(140, 184, 242, 0.2);
 }
 
 .article-cover {
@@ -610,50 +410,26 @@ ARTICLE CARDS WITH COSMIC HOVER EFFECTS
     display: block;
     object-fit: cover;
     border-bottom: 1px solid rgba(140, 184, 242, 0.2);
-    transition: all 0.5s ease;
-}
-
-.article-card:hover .article-cover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
 }
 
 .card-caption {
-    padding: 20px;
+    padding: 15px;
     text-align: center;
 }
 
 .card-caption h3 {
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-size: 1.2em;
     color: var(--text-light);
     border-bottom: none;
     padding-bottom: 0;
     text-shadow: none;
-    transition: all 0.3s ease;
-}
-
-.article-card:hover .card-caption h3 {
-    color: var(--accent-blue);
-    text-shadow: 0 0 10px rgba(140, 184, 242, 0.4);
 }
 
 .card-caption a {
     font-weight: 600;
     font-size: 1em;
-    position: relative;
-    display: inline-block;
-}
-
-.card-caption a::after {
-    content: '→';
-    margin-left: 5px;
-    transition: margin-left 0.3s ease;
-}
-
-.card-caption a:hover::after {
-    margin-left: 10px;
 }
 
 .activity-card .activity-caption {
@@ -661,41 +437,29 @@ ARTICLE CARDS WITH COSMIC HOVER EFFECTS
     font-weight: 700;
     color: var(--accent-green);
     margin-bottom: 5px;
-    text-shadow: 0 0 15px rgba(140, 242, 184, 0.4);
 }
 
-/* ===============================================
-SIDEBAR WITH ENHANCED STYLING
-=============================================== */
-
+/* Sidebar Specifics */
 .editor-picks,
 .activities {
-    background: rgba(13, 10, 26, 0.6);
-    backdrop-filter: blur(15px) saturate(120%);
-    padding: 30px;
-    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(30, 25, 40, 0.8) 100%);
+    backdrop-filter: blur(8px);
+    padding: 25px;
+    border-radius: 8px;
     border: 1px solid rgba(140, 184, 242, 0.2);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-.editor-picks:hover,
-.activities:hover {
-    border-color: rgba(140, 184, 242, 0.4);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5), 0 0 30px rgba(140, 184, 242, 0.2);
-}
-
-.editor-picks h2, 
-.activities h2 {
+.editor-picks h2, .activities h2 {
     margin-top: 0;
     text-align: left;
     font-size: 2em;
-    border-bottom: 3px solid rgba(242, 140, 140, 0.3);
+    border-bottom: 3px solid rgba(242, 140, 140, 0.3); /* Using red accent for picks/activities */
     text-shadow: 0 0 20px rgba(242, 140, 140, 0.3);
 }
 
 /* ===============================================
-STAFF PAGE WITH ROLE ANIMATIONS
+STAFF PAGE STYLES (staff.html)
 =============================================== */
 
 .staff-page {
@@ -712,12 +476,6 @@ STAFF PAGE WITH ROLE ANIMATIONS
     margin-right: auto;
     font-style: italic;
     font-weight: 300;
-    animation: fade-in 1s ease-out;
-}
-
-@keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 .staff-grid {
@@ -728,65 +486,37 @@ STAFF PAGE WITH ROLE ANIMATIONS
 }
 
 .staff-card {
-    background: rgba(13, 10, 26, 0.7);
-    backdrop-filter: blur(15px) saturate(130%);
-    border: 2px solid transparent;
-    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(30, 25, 40, 0.85) 100%);
+    backdrop-filter: blur(10px);
+    border: 3px solid transparent;
+    border-radius: 15px; 
     padding: 50px 20px;
     text-align: center;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.staff-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(140, 184, 242, 0.05) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    animation: rotate-slow 15s linear infinite;
-}
-
-@keyframes rotate-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.staff-card:hover::before {
-    opacity: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .staff-card:hover {
-    transform: translateY(-12px) scale(1.03);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
 }
 
 .staff-card .role-title {
     font-size: 1.4em;
     margin-top: 0;
     margin-bottom: 30px;
-    padding: 10px 20px;
-    border-radius: 50px;
+    padding: 8px 16px; 
+    border-radius: 4px;
     display: inline-block;
     font-weight: 700;
-    color: #ffffff;
+    /* FIX: Set title color to glowing purple */
+    color: var(--accent-purple); 
+    text-shadow: 0 0 10px rgba(192, 140, 242, 0.7); /* Purple glow */
     text-transform: uppercase;
-    letter-spacing: 2px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.4s ease;
-    position: relative;
-    z-index: 1;
-}
-
-.staff-card:hover .role-title {
-    transform: scale(1.1);
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Remove background color, as text is now colored */
+    background-color: transparent; 
 }
 
 .staff-card .staff-name {
@@ -795,85 +525,39 @@ STAFF PAGE WITH ROLE ANIMATIONS
     margin: 10px 0;
     line-height: 1.4;
     font-weight: 300;
-    transition: all 0.3s ease;
 }
 
-.staff-card:hover .staff-name {
-    color: var(--accent-blue);
-}
-
-/* Define Role Colors */
+/* Define Role Colors - No longer needed for title background */
 .color-editor { --role-color: var(--accent-red); }
 .color-chemistry { --role-color: var(--accent-blue); }
 .color-physics { --role-color: var(--accent-green); }
 .color-graphic { --role-color: var(--accent-yellow); }
 .color-programming { --role-color: var(--accent-purple); }
 
-/* Apply Colors with proper contrast */
-.staff-card.editor .role-title { 
-    background-color: var(--role-color);
-    color: #0a0a0a;
-    font-weight: 800;
-}
-.staff-card.chemistry .role-title { 
-    background-color: var(--role-color);
-    color: #0a0a0a;
-    font-weight: 800;
-}
-.staff-card.physics .role-title { 
-    background-color: var(--role-color);
-    color: #0a0a0a;
-    font-weight: 800;
-}
-.staff-card.graphic .role-title { 
-    background-color: var(--role-color);
-    color: #0a0a0a;
-    font-weight: 800;
-}
-.staff-card.programming .role-title { 
-    background-color: var(--role-color);
-    color: #0a0a0a;
-    font-weight: 800;
-}
-
-/* Apply Hover Border with Animated Glow */
+/* Apply Hover Border with Glow */
 .staff-card.editor:hover { 
     border-color: var(--accent-red);
-    box-shadow: 
-        0 16px 48px rgba(0, 0, 0, 0.8), 
-        0 0 50px rgba(242, 140, 140, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(242, 140, 140, 0.3);
 }
-
 .staff-card.chemistry:hover { 
     border-color: var(--accent-blue);
-    box-shadow: 
-        0 16px 48px rgba(0, 0, 0, 0.8), 
-        0 0 50px rgba(140, 184, 242, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(140, 184, 242, 0.3);
 }
-
 .staff-card.physics:hover { 
     border-color: var(--accent-green);
-    box-shadow: 
-        0 16px 48px rgba(0, 0, 0, 0.8), 
-        0 0 50px rgba(140, 242, 184, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(140, 242, 184, 0.3);
 }
-
 .staff-card.graphic:hover { 
     border-color: var(--accent-yellow);
-    box-shadow: 
-        0 16px 48px rgba(0, 0, 0, 0.8), 
-        0 0 50px rgba(242, 228, 140, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(242, 228, 140, 0.3);
 }
-
 .staff-card.programming:hover { 
     border-color: var(--accent-purple);
-    box-shadow: 
-        0 16px 48px rgba(0, 0, 0, 0.8), 
-        0 0 50px rgba(192, 140, 242, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(192, 140, 242, 0.3);
 }
 
 /* ===============================================
-ABOUT PAGE WITH ELEGANT STYLING
+ABOUT PAGE STYLES (about.html)
 =============================================== */
 
 .about-page {
@@ -896,27 +580,19 @@ ABOUT PAGE WITH ELEGANT STYLING
 }
 
 .about-content {
-    background: rgba(13, 10, 26, 0.7);
-    backdrop-filter: blur(20px) saturate(140%);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(30, 25, 40, 0.85) 100%);
+    backdrop-filter: blur(10px);
     padding: 50px;
-    border-radius: 20px;
-    border: 1px solid rgba(140, 184, 242, 0.25);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.6),
-        0 0 60px rgba(140, 184, 242, 0.1);
-    animation: fade-in-up 0.8s ease-out;
+    border-radius: 12px;
+    border: 1px solid rgba(140, 184, 242, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 
 .about-content p {
     font-size: 1.15em;
-    line-height: 1.8;
+    line-height: 1.7;
     color: #ddd;
-    margin-bottom: 30px;
-    transition: color 0.3s ease;
-}
-
-.about-content p:hover {
-    color: #f0f0f0;
+    margin-bottom: 30px; 
 }
 
 .about-content .meeting-info {
@@ -927,69 +603,33 @@ ABOUT PAGE WITH ELEGANT STYLING
     padding-top: 20px;
     margin-top: 30px;
     margin-bottom: 0;
-    text-shadow: 0 0 15px rgba(140, 242, 184, 0.4);
-    animation: info-pulse 3s ease-in-out infinite;
-}
-
-@keyframes info-pulse {
-    0%, 100% { text-shadow: 0 0 15px rgba(140, 242, 184, 0.4); }
-    50% { text-shadow: 0 0 25px rgba(140, 242, 184, 0.6); }
+    text-shadow: 0 0 10px rgba(140, 242, 184, 0.3);
 }
 
 .award-box {
-    background: rgba(20, 16, 35, 0.8);
-    backdrop-filter: blur(10px);
-    border-left: 4px solid var(--accent-yellow);
-    padding: 30px 35px;
+    background: linear-gradient(135deg, rgba(34, 34, 34, 0.9) 0%, rgba(40, 35, 50, 0.9) 100%);
+    backdrop-filter: blur(8px);
+    border-left: 5px solid var(--accent-yellow);
+    padding: 25px 30px;
     margin-top: 50px;
-    border-radius: 15px;
-    box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.5),
-        0 0 40px rgba(242, 228, 140, 0.15);
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.award-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, transparent 0%, rgba(242, 228, 140, 0.05) 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.award-box:hover::before {
-    opacity: 1;
-}
-
-.award-box:hover {
-    transform: translateX(5px);
-    box-shadow: 
-        0 6px 30px rgba(0, 0, 0, 0.6),
-        0 0 60px rgba(242, 228, 140, 0.25);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(242, 228, 140, 0.1);
 }
 
 .award-box h3 {
     margin-top: 0;
-    font-size: 1.5em;
+    font-size: 1.4em;
     color: var(--accent-yellow);
     margin-bottom: 15px;
     border-bottom: none;
     padding-bottom: 0;
-    text-shadow: 0 0 20px rgba(242, 228, 140, 0.5);
-    position: relative;
+    text-shadow: 0 0 15px rgba(242, 228, 140, 0.4);
 }
 
 .award-box p {
     font-size: 1.05em;
     color: #ccc;
     margin-bottom: 0;
-    position: relative;
 }
 
 .award-box p strong {
@@ -998,7 +638,7 @@ ABOUT PAGE WITH ELEGANT STYLING
 }
 
 /* ===============================================
-PAST EDITIONS PAGE WITH GALLERY EFFECTS
+PAST EDITIONS PAGE STYLES (past-editions.html)
 =============================================== */
 
 .editions-page {
@@ -1018,39 +658,20 @@ PAST EDITIONS PAGE WITH GALLERY EFFECTS
 }
 
 .edition-card {
-    background: rgba(13, 10, 26, 0.7);
-    backdrop-filter: blur(15px) saturate(130%);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(30, 25, 40, 0.85) 100%);
+    backdrop-filter: blur(10px);
     padding: 25px;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 1px solid rgba(140, 184, 242, 0.2);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    position: relative;
-    overflow: hidden;
-}
-
-.edition-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(140, 184, 242, 0.1), transparent);
-    transition: left 0.8s ease;
-}
-
-.edition-card:hover::before {
-    left: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .edition-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.6),
-        0 0 40px rgba(140, 184, 242, 0.3);
-    border-color: rgba(140, 184, 242, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(140, 184, 242, 0.2);
+    border-color: var(--accent-blue);
 }
 
 .edition-cover {
@@ -1059,68 +680,26 @@ PAST EDITIONS PAGE WITH GALLERY EFFECTS
     object-fit: contain;
     margin-bottom: 20px;
     border: 1px solid rgba(140, 184, 242, 0.2);
-    border-radius: 8px;
+    border-radius: 4px;
     background-color: #0d0d0d;
-    transition: all 0.4s ease;
-}
-
-.edition-card:hover .edition-cover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 30px rgba(140, 184, 242, 0.3);
 }
 
 .edition-card.recent {
-    border: 2px solid var(--accent-red);
-    box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(242, 140, 140, 0.3);
-    animation: recent-pulse 2s ease-in-out infinite;
-}
-
-@keyframes recent-pulse {
-    0%, 100% { 
-        box-shadow: 
-            0 4px 20px rgba(0, 0, 0, 0.4),
-            0 0 40px rgba(242, 140, 140, 0.3);
-    }
-    50% { 
-        box-shadow: 
-            0 4px 20px rgba(0, 0, 0, 0.4),
-            0 0 60px rgba(242, 140, 140, 0.5);
-    }
+    border: 2px solid var(--accent-red); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 25px rgba(242, 140, 140, 0.3);
 }
 
 .edition-card.recent:hover {
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.6),
-        0 0 70px rgba(242, 140, 140, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 35px rgba(242, 140, 140, 0.5);
 }
 
 .edition-card.award-winning {
     border: 2px solid var(--accent-yellow);
-    box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(242, 228, 140, 0.3);
-    animation: award-shine 3s ease-in-out infinite;
-}
-
-@keyframes award-shine {
-    0%, 100% { 
-        box-shadow: 
-            0 4px 20px rgba(0, 0, 0, 0.4),
-            0 0 40px rgba(242, 228, 140, 0.3);
-    }
-    50% { 
-        box-shadow: 
-            0 4px 20px rgba(0, 0, 0, 0.4),
-            0 0 60px rgba(242, 228, 140, 0.5);
-    }
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 25px rgba(242, 228, 140, 0.3);
 }
 
 .edition-card.award-winning:hover {
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.6),
-        0 0 70px rgba(242, 228, 140, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 35px rgba(242, 228, 140, 0.5);
 }
 
 .edition-card h3 {
@@ -1130,59 +709,51 @@ PAST EDITIONS PAGE WITH GALLERY EFFECTS
     margin-bottom: 20px;
     border-bottom: 1px dashed rgba(140, 184, 242, 0.3);
     padding-bottom: 10px;
-    text-shadow: 0 0 15px rgba(140, 184, 242, 0.4);
-    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(140, 184, 242, 0.3);
 }
 
-.edition-card:hover h3 {
-    text-shadow: 0 0 25px rgba(140, 184, 242, 0.6);
-}
-
-.edition-card .download-button {
+.download-button {
+    /* Styles are defined in hero section for the main button, keeping this general one for past-editions */
     display: block;
     width: 90%;
     margin: 0 auto;
-    background: var(--accent-blue);
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
     color: white;
-    padding: 12px 20px;
+    padding: 10px 20px;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 5px;
     font-weight: bold;
     text-align: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 20px rgba(140, 184, 242, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
 }
 
-.edition-card .download-button:hover {
-    background: #b4d4ff;
+.download-button:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(140, 184, 242, 0.5);
-    color: #0a0a0a;
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
 }
 
 /* ===============================================
-RESPONSIVE STYLES WITH SMOOTH TRANSITIONS
+RESPONSIVE STYLES
 =============================================== */
 
 @media (max-width: 1000px) {
     .content-grid .container {
         flex-direction: column;
     }
-    
     .article-grid {
+        /* On medium screens, switch to two columns */
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-    
     .picks-grid {
-        flex-direction: row;
+        flex-direction: row; /* Layout picks side-by-side on tablet/small screen */
         justify-content: space-around;
         gap: 15px;
     }
-    
     .editor-picks .article-card {
         flex: 1;
     }
-    
     .quick-blurb {
         position: static;
         transform: none;
@@ -1198,25 +769,11 @@ RESPONSIVE STYLES WITH SMOOTH TRANSITIONS
         flex-direction: column;
         text-align: center;
     }
-    
     .navbar nav ul {
         margin-top: 15px;
     }
-    
     .navbar nav ul li {
         margin: 0 10px;
-    }
-    
-    .hero-section .journal-title {
-        font-size: 1.8em;
-    }
-    
-    .quote-section .quote {
-        font-size: 2em;
-    }
-    
-    h2 {
-        font-size: 2em;
     }
 }
 
@@ -1225,64 +782,14 @@ RESPONSIVE STYLES WITH SMOOTH TRANSITIONS
     .edition-grid {
         grid-template-columns: 1fr;
     }
-    
     .navbar .logo {
         font-size: 2em;
     }
-    
     .article-grid {
+        /* On small screens, switch to single column */
         grid-template-columns: 1fr;
     }
-    
     .picks-grid {
         flex-direction: column;
-    }
-    
-    .hero-section .cover-display {
-        padding: 25px;
-    }
-    
-    .about-content {
-        padding: 30px;
-    }
-}
-
-/* ===============================================
-ACCESSIBILITY & PERFORMANCE
-=============================================== */
-
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Focus styles for accessibility */
-a:focus,
-button:focus {
-    outline: 2px solid var(--accent-blue);
-    outline-offset: 2px;
-}
-
-/* Print styles */
-@media print {
-    body::before,
-    body::after {
-        display: none;
-    }
-    
-    .navbar,
-    footer {
-        background: #000;
     }
 }
