@@ -456,7 +456,8 @@ STAFF PAGE STYLES (staff.html)
     border-radius: 4px;
     display: inline-block;
     font-weight: 700;
-    color: #111111;
+    /* FIX: Change default role title color to white for contrast against dark, colored backgrounds */
+    color: #ffffff; 
     text-transform: uppercase;
     letter-spacing: 1.5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -471,14 +472,6 @@ STAFF PAGE STYLES (staff.html)
     font-weight: 300;
 }
 
-/* The previous rule:
-.staff-card .staff-name:first-of-type {
-    font-weight: 600; 
-}
-has been removed to achieve a consistent light font weight for all names.
-*/
-
-
 /* Define Role Colors */
 .color-editor { --role-color: var(--accent-red); }
 .color-chemistry { --role-color: var(--accent-blue); }
@@ -491,10 +484,9 @@ has been removed to achieve a consistent light font weight for all names.
 .staff-card.chemistry .role-title { background-color: var(--role-color); }
 .staff-card.physics .role-title { background-color: var(--role-color); }
 .staff-card.graphic .role-title { background-color: var(--role-color); }
-
 .staff-card.programming .role-title { 
     background-color: var(--role-color); 
-    /* FIX: Ensure title text is readable against the dark purple background */
+    /* This line is now redundant but kept as a strong override */
     color: #ffffff; 
 }
 
