@@ -129,7 +129,7 @@ HOMEPAGE STYLES (index.html)
     text-align: center;
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
-    position: relative;
+    position: relative; /* Keep for potential future use or complex positioning */
 }
 
 .quote-section .quote {
@@ -139,31 +139,36 @@ HOMEPAGE STYLES (index.html)
     color: #eeeeee;
     margin-bottom: 15px;
     font-weight: 300;
+    /* --- GLOW EFFECT --- */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), /* Stronger white glow */
+                 0 0 20px rgba(140, 184, 242, 0.4); /* Blue outer glow */
+    /* --- GLOW EFFECT --- */
 }
 
 .quote-section .author {
     font-size: 1.3em;
     color: #aaaaaa;
     margin-top: 0;
+    margin-bottom: 40px; /* Space between author and blurb */
 }
 
 .quick-blurb {
-    position: absolute;
-    left: 40px;
-    top: 50%;
-    transform: translateY(-50%);
+    /* Repositioned to be centered below the quote */
+    position: static; /* Remove absolute positioning */
+    transform: none; /* Remove transform */
+    margin: 0 auto; /* Center it horizontally */
     background-color: #2a2a2a;
     padding: 18px;
     border-radius: 8px;
     font-size: 1em;
     color: #cccccc;
-    text-align: left;
-    max-width: 180px;
+    text-align: center; /* Center the text within the blurb */
+    max-width: 600px; /* Adjusted max-width for better display below quote */
     border-left: 5px solid #8cf2b8; /* Green accent */
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 .quick-blurb p {
-    margin: 5px 0;
+    margin: 0; /* Remove default paragraph margin */
 }
 
 
