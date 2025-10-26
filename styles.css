@@ -809,26 +809,31 @@ STAFF PAGE WITH ROLE ANIMATIONS
 .color-graphic { --role-color: var(--accent-yellow); }
 .color-programming { --role-color: var(--accent-purple); }
 
-/* Apply Colors */
+/* Apply Colors with proper contrast */
 .staff-card.editor .role-title { 
     background-color: var(--role-color);
-    color: #ffffff;
+    color: #0a0a0a;
+    font-weight: 800;
 }
 .staff-card.chemistry .role-title { 
     background-color: var(--role-color);
-    color: #ffffff;
+    color: #0a0a0a;
+    font-weight: 800;
 }
 .staff-card.physics .role-title { 
     background-color: var(--role-color);
     color: #0a0a0a;
+    font-weight: 800;
 }
 .staff-card.graphic .role-title { 
     background-color: var(--role-color);
     color: #0a0a0a;
+    font-weight: 800;
 }
 .staff-card.programming .role-title { 
     background-color: var(--role-color);
-    color: #ffffff;
+    color: #0a0a0a;
+    font-weight: 800;
 }
 
 /* Apply Hover Border with Animated Glow */
