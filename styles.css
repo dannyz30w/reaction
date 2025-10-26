@@ -12,19 +12,24 @@ BASE STYLES & LAYOUT
 =============================================== */
 
 /* Basic Reset & Body Styling */
+/* ===============================================
+BODY STYLES - OPTION 1: SUBTLE HEXAGONAL GRID
+=============================================== */
+
 body {
     margin: 0;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #111111;
     color: #f0f0f0;
     line-height: 1.65;
     scroll-behavior: smooth;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    
+    /* NEW BACKGROUND STYLES */
+    background-color: #0d0d12; /* Very dark blue-black base */
+    background-image: 
+        radial-gradient(#1a1a25 1px, transparent 1px),
+        radial-gradient(#1a1a25 1px, transparent 1px);
+    background-size: 40px 40px; /* Size of the repeating unit */
+    background-position: 0 0, 20px 20px; /* Offset for hexagonal tiling */
 }
 
 h2 {
