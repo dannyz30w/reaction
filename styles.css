@@ -5,7 +5,7 @@ COLOR PALETTE & VARIABLES
 :root {
     --bg-dark: #0a0a0a;
     --bg-medium: #111111;
-    --bg-card: #1a1a1a; /* Adjusted to be slightly lighter than body background for contrast */
+    --bg-card: #1a1a1a; 
     --text-light: #f0f0f0;
     --text-faded: #a0a0a0;
     --accent-blue: #8cb8f2;
@@ -22,16 +22,12 @@ BASE STYLES & TYPOGRAPHY
 body {
     margin: 0;
     font-family: 'Helvetica Neue', Arial, sans-serif;
+    /* --- ORIGINAL PLAIN BLACK BACKGROUND --- */
+    background-color: #111111;
+    /* --- END ORIGINAL BACKGROUND --- */
     color: var(--text-light);
     line-height: 1.65;
     scroll-behavior: smooth;
-    
-    /* --- NEW COSMIC NOISE BACKGROUND --- */
-    background-color: #050508; /* Near-black base for deep space */
-    background-image: 
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3"><rect width="3" height="3" fill="#050508"/><circle cx="1.5" cy="1.5" r="0.2" fill="rgba(255, 255, 255, 0.08)"/></svg>');
-    background-repeat: repeat;
-    /* --- END COSMIC NOISE BACKGROUND --- */
 }
 
 a {
@@ -127,7 +123,7 @@ HOMEPAGE STYLES (index.html)
 }
 
 .hero-section .cover-display {
-    background-color: var(--bg-card); /* Card color for contrast */
+    background-color: var(--bg-card);
     border: 3px solid #444;
     padding: 30px;
     display: inline-block;
@@ -340,7 +336,7 @@ STAFF PAGE STYLES (staff.html)
 /* Define Role Colors */
 .color-editor { --role-color: var(--accent-red); }
 .color-chemistry { --role-color: var(--accent-blue); }
-.color-physics { --role-color: #8cf2b8; } /* Using fixed value here, you can change to var(--accent-green) if defined */
+.color-physics { --role-color: var(--accent-green); }
 .color-graphic { --role-color: var(--accent-yellow); }
 .color-programming { --role-color: #c08cf2; }
 
@@ -354,7 +350,7 @@ STAFF PAGE STYLES (staff.html)
 /* Apply Hover Border */
 .staff-card.editor:hover { border-color: var(--accent-red); }
 .staff-card.chemistry:hover { border-color: var(--accent-blue); }
-.staff-card.physics:hover { border-color: #8cf2b8; }
+.staff-card.physics:hover { border-color: var(--accent-green); }
 .staff-card.graphic:hover { border-color: var(--accent-yellow); }
 .staff-card.programming:hover { border-color: #c08cf2; }
 
