@@ -12,11 +12,12 @@ COLOR PALETTE & VARIABLES
     --accent-yellow: #f2e28c;
     --accent-green: #8cf2b8;
     --accent-red: #f28c8c;
+    --accent-purple: #c08cf2;
     --border-subtle: #333;
 }
 
 /* ===============================================
-BASE STYLES & TYPOGRAPHY
+BASE STYLES & COSMIC BACKGROUND
 =============================================== */
 
 body {
@@ -121,10 +122,20 @@ body::after {
     position: relative;
     z-index: 1;
 }
+
+/* ===============================================
+TYPOGRAPHY
+=============================================== */
+
 a {
     color: var(--accent-blue);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: #b4d4ff;
+    text-shadow: 0 0 8px rgba(140, 184, 242, 0.5);
 }
 
 .container {
@@ -137,10 +148,11 @@ h2 {
     color: #ffffff;
     font-size: 2.5em; 
     font-weight: 700;
-    border-bottom: 3px solid var(--border-subtle);
+    border-bottom: 3px solid rgba(140, 184, 242, 0.3);
     padding-bottom: 15px;
     margin-bottom: 40px;
     text-align: center;
+    text-shadow: 0 0 20px rgba(140, 184, 242, 0.3);
 }
 
 /* ===============================================
@@ -148,10 +160,11 @@ NAVBAR & FOOTER
 =============================================== */
 
 .navbar {
-    background-color: #0d0d0d;
+    background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(20, 15, 30, 0.95) 100%);
+    backdrop-filter: blur(10px);
     padding: 20px 0;
-    border-bottom: 5px solid #222222; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(140, 184, 242, 0.3); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(140, 184, 242, 0.1);
 }
 
 .navbar .container {
@@ -166,6 +179,7 @@ NAVBAR & FOOTER
     color: #ffffff;
     line-height: 1; 
     font-weight: 900;
+    text-shadow: 0 0 20px rgba(140, 184, 242, 0.5);
 }
 
 .navbar nav ul {
@@ -184,23 +198,40 @@ NAVBAR & FOOTER
     text-decoration: none;
     font-size: 1.15em;
     font-weight: 500;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
+    transition: all 0.3s ease;
     padding-bottom: 5px;
+    position: relative;
+}
+
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    transition: width 0.3s ease;
 }
 
 .navbar nav ul li a:hover {
     color: var(--accent-blue);
-    border-bottom: 2px solid var(--accent-blue);
+}
+
+.navbar nav ul li a:hover::after {
+    width: 100%;
 }
 
 footer {
-    background-color: #0d0d0d;
+    background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(20, 15, 30, 0.95) 100%);
+    backdrop-filter: blur(10px);
     color: #777;
     text-align: center;
     padding: 30px 0;
     margin-top: 50px;
-    border-top: 5px solid #222222;
+    border-top: 2px solid rgba(140, 184, 242, 0.3);
     font-size: 0.9em;
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.7);
 }
 
 /* ===============================================
@@ -214,12 +245,19 @@ HOMEPAGE STYLES (index.html)
 }
 
 .hero-section .cover-display {
-    background-color: var(--bg-card);
-    border: 3px solid #444;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(30, 25, 40, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(140, 184, 242, 0.3);
     padding: 30px;
     display: inline-block;
     border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 40px rgba(140, 184, 242, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-section .cover-display:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 60px rgba(140, 184, 242, 0.3);
 }
 
 .hero-section .journal-cover {
@@ -227,15 +265,17 @@ HOMEPAGE STYLES (index.html)
     height: auto;
     display: block;
     margin: 0 auto;
+    border-radius: 8px;
 }
 
 /* Quote Section */
 .quote-section {
-    background-color: #1a1a1a;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(30, 25, 40, 0.7) 100%);
+    backdrop-filter: blur(10px);
     padding: 70px 0;
     text-align: center;
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #333;
+    border-top: 1px solid rgba(140, 184, 242, 0.2);
+    border-bottom: 1px solid rgba(140, 184, 242, 0.2);
     position: relative;
 }
 
@@ -246,9 +286,9 @@ HOMEPAGE STYLES (index.html)
     color: #eeeeee;
     margin-bottom: 15px;
     font-weight: 300;
-    /* GLOW EFFECT */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
-                 0 0 20px rgba(140, 184, 242, 0.4);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
+                 0 0 30px rgba(140, 184, 242, 0.5),
+                 0 0 45px rgba(192, 140, 242, 0.3);
 }
 
 .quote-section .author {
@@ -259,11 +299,11 @@ HOMEPAGE STYLES (index.html)
 }
 
 .quick-blurb {
-    /* Repositioned to be centered below the quote */
     position: static;
     transform: none;
     margin: 0 auto;
-    background-color: #2a2a2a;
+    background: linear-gradient(135deg, rgba(42, 42, 42, 0.8) 0%, rgba(45, 35, 60, 0.8) 100%);
+    backdrop-filter: blur(8px);
     padding: 18px;
     border-radius: 8px;
     font-size: 1em;
@@ -271,12 +311,12 @@ HOMEPAGE STYLES (index.html)
     text-align: center;
     max-width: 600px;
     border-left: 5px solid var(--accent-green);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(140, 242, 184, 0.1);
 }
+
 .quick-blurb p {
     margin: 0;
 }
-
 
 /* Content Grid (Editorial and Sidebar) */
 .content-grid {
@@ -308,19 +348,24 @@ HOMEPAGE STYLES (index.html)
 }
 
 .article-preview {
-    background-color: var(--bg-card);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(30, 25, 40, 0.8) 100%);
+    backdrop-filter: blur(8px);
     padding: 25px;
-    border-radius: 8px;
-    border: 1px solid #444;
-    transition: background-color 0.3s, border-color 0.3s;
+    border-radius: 12px;
+    border: 1px solid rgba(140, 184, 242, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
+
 .article-preview:hover {
-    background-color: #2a2a2a;
-    border-color: var(--accent-blue);
+    background: linear-gradient(135deg, rgba(42, 42, 42, 0.9) 0%, rgba(45, 35, 60, 0.9) 100%);
+    border-color: rgba(140, 184, 242, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(140, 184, 242, 0.2);
 }
 
 .article-box {
-    background-color: #3a3a3a;
+    background: linear-gradient(135deg, rgba(58, 58, 58, 0.9) 0%, rgba(60, 50, 75, 0.9) 100%);
     color: #fff;
     padding: 15px;
     text-align: center;
@@ -328,10 +373,11 @@ HOMEPAGE STYLES (index.html)
     margin-bottom: 15px;
     border-radius: 4px;
     font-size: 1.1em;
+    border: 1px solid rgba(140, 184, 242, 0.2);
 }
 
 .more-button {
-    background-color: var(--accent-yellow);
+    background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffd700 100%);
     color: #111111;
     padding: 15px 30px;
     border: none;
@@ -340,23 +386,26 @@ HOMEPAGE STYLES (index.html)
     font-size: 1.1em;
     font-weight: 700;
     margin-top: 40px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(242, 228, 140, 0.3);
 }
 
 .more-button:hover {
-    background-color: #ffd700;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(242, 228, 140, 0.5);
 }
 
 /* Sidebar Specifics */
 .selected-articles,
 .activities {
-    background-color: var(--bg-card);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(30, 25, 40, 0.8) 100%);
+    backdrop-filter: blur(8px);
     padding: 25px;
     border-radius: 8px;
-    border: 1px solid #333;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(140, 184, 242, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
-
 
 /* ===============================================
 STAFF PAGE STYLES (staff.html)
@@ -386,18 +435,19 @@ STAFF PAGE STYLES (staff.html)
 }
 
 .staff-card {
-    background-color: var(--bg-card);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(30, 25, 40, 0.85) 100%);
+    backdrop-filter: blur(10px);
     border: 3px solid transparent;
     border-radius: 15px; 
     padding: 50px 20px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .staff-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
 }
 
 .staff-card .role-title {
@@ -411,6 +461,7 @@ STAFF PAGE STYLES (staff.html)
     color: #111111;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .staff-card .staff-name {
@@ -420,6 +471,7 @@ STAFF PAGE STYLES (staff.html)
     line-height: 1.4;
     font-weight: 300;
 }
+
 .staff-card .staff-name:first-of-type {
     font-weight: 600; 
 }
@@ -438,12 +490,27 @@ STAFF PAGE STYLES (staff.html)
 .staff-card.graphic .role-title { background-color: var(--role-color); }
 .staff-card.programming .role-title { background-color: var(--role-color); }
 
-/* Apply Hover Border */
-.staff-card.editor:hover { border-color: var(--accent-red); }
-.staff-card.chemistry:hover { border-color: var(--accent-blue); }
-.staff-card.physics:hover { border-color: var(--accent-green); }
-.staff-card.graphic:hover { border-color: var(--accent-yellow); }
-.staff-card.programming:hover { border-color: #c08cf2; }
+/* Apply Hover Border with Glow */
+.staff-card.editor:hover { 
+    border-color: var(--accent-red);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(242, 140, 140, 0.3);
+}
+.staff-card.chemistry:hover { 
+    border-color: var(--accent-blue);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(140, 184, 242, 0.3);
+}
+.staff-card.physics:hover { 
+    border-color: var(--accent-green);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(140, 242, 184, 0.3);
+}
+.staff-card.graphic:hover { 
+    border-color: var(--accent-yellow);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(242, 228, 140, 0.3);
+}
+.staff-card.programming:hover { 
+    border-color: #c08cf2;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(192, 140, 242, 0.3);
+}
 
 /* ===============================================
 ABOUT PAGE STYLES (about.html)
@@ -462,18 +529,19 @@ ABOUT PAGE STYLES (about.html)
     font-size: 2.5em;
     margin-bottom: 40px;
     padding-bottom: 15px;
-    border-bottom: 3px solid #333;
+    border-bottom: 3px solid rgba(140, 184, 242, 0.3);
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
 }
 
 .about-content {
-    background-color: var(--bg-card);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(30, 25, 40, 0.85) 100%);
+    backdrop-filter: blur(10px);
     padding: 50px;
     border-radius: 12px;
-    border: 1px solid #333;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(140, 184, 242, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 
 .about-content p {
@@ -487,18 +555,21 @@ ABOUT PAGE STYLES (about.html)
     font-style: normal;
     color: var(--accent-green);
     font-weight: 600;
-    border-top: 1px solid #333;
+    border-top: 1px solid rgba(140, 184, 242, 0.2);
     padding-top: 20px;
     margin-top: 30px;
     margin-bottom: 0;
+    text-shadow: 0 0 10px rgba(140, 242, 184, 0.3);
 }
 
 .award-box {
-    background-color: #222222;
+    background: linear-gradient(135deg, rgba(34, 34, 34, 0.9) 0%, rgba(40, 35, 50, 0.9) 100%);
+    backdrop-filter: blur(8px);
     border-left: 5px solid var(--accent-yellow);
     padding: 25px 30px;
     margin-top: 50px;
     border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(242, 228, 140, 0.1);
 }
 
 .award-box h3 {
@@ -508,6 +579,7 @@ ABOUT PAGE STYLES (about.html)
     margin-bottom: 15px;
     border-bottom: none;
     padding-bottom: 0;
+    text-shadow: 0 0 15px rgba(242, 228, 140, 0.4);
 }
 
 .award-box p {
@@ -520,7 +592,6 @@ ABOUT PAGE STYLES (about.html)
     color: #ffffff;
     font-weight: 700;
 }
-
 
 /* ===============================================
 PAST EDITIONS PAGE STYLES (past-editions.html)
@@ -543,17 +614,19 @@ PAST EDITIONS PAGE STYLES (past-editions.html)
 }
 
 .edition-card {
-    background-color: var(--bg-card);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(30, 25, 40, 0.85) 100%);
+    backdrop-filter: blur(10px);
     padding: 25px;
     border-radius: 10px;
-    border: 1px solid #444;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(140, 184, 242, 0.2);
+    transition: all 0.3s ease;
     text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .edition-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(140, 184, 242, 0.2);
     border-color: var(--accent-blue);
 }
 
@@ -562,18 +635,27 @@ PAST EDITIONS PAGE STYLES (past-editions.html)
     max-height: 350px;
     object-fit: contain;
     margin-bottom: 20px;
-    border: 1px solid #333;
+    border: 1px solid rgba(140, 184, 242, 0.2);
     border-radius: 4px;
     background-color: #0d0d0d;
 }
 
 .edition-card.recent {
     border: 2px solid var(--accent-red); 
-    box-shadow: 0 0 15px rgba(242, 140, 140, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 25px rgba(242, 140, 140, 0.3);
+}
+
+.edition-card.recent:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 35px rgba(242, 140, 140, 0.5);
 }
 
 .edition-card.award-winning {
     border: 2px solid var(--accent-yellow);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 25px rgba(242, 228, 140, 0.3);
+}
+
+.edition-card.award-winning:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 35px rgba(242, 228, 140, 0.5);
 }
 
 .edition-card h3 {
@@ -581,26 +663,30 @@ PAST EDITIONS PAGE STYLES (past-editions.html)
     margin-top: 0;
     font-size: 1.4em;
     margin-bottom: 20px;
-    border-bottom: 1px dashed #444;
+    border-bottom: 1px dashed rgba(140, 184, 242, 0.3);
     padding-bottom: 10px;
+    text-shadow: 0 0 10px rgba(140, 184, 242, 0.3);
 }
 
 .download-button {
     display: block;
     width: 90%;
     margin: 0 auto;
-    background-color: #007bff; 
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
     color: white;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     text-align: center;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
 }
 
 .download-button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
 }
 
 /* ===============================================
@@ -622,25 +708,4 @@ RESPONSIVE STYLES
 }
 
 @media (max-width: 768px) {
-    .navbar .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .navbar nav ul {
-        margin-top: 15px;
-    }
-    .navbar nav ul li {
-        margin: 0 10px;
-    }
-}
-
-@media (max-width: 600px) {
-    .staff-grid,
-    .edition-grid {
-        grid-template-columns: 1fr;
-    }
-    .navbar .logo {
-        font-size: 2em;
-    }
-}
-/* Vercel Cache Buster: 20251025 */
+    .navbar .container
