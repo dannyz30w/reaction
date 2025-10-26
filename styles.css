@@ -286,9 +286,7 @@ HOMEPAGE STYLES (index.html)
     color: #eeeeee;
     margin-bottom: 15px;
     font-weight: 300;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
-                 0 0 30px rgba(140, 184, 242, 0.5),
-                 0 0 45px rgba(192, 140, 242, 0.3);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6),                 0 0 30px rgba(140, 184, 242, 0.5),                 0 0 45px rgba(192, 140, 242, 0.3);
 }
 
 .quote-section .author {
@@ -463,33 +461,23 @@ STAFF PAGE STYLES (staff.html)
     letter-spacing: 1.5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-/* Update this block in your CSS */
-.staff-card.programming .role-title { 
-    background-color: var(--role-color); 
-    /* ADD THIS LINE to make the text white/light against the dark purple */
-    color: #ffffff;
-}
 
-/* Change the general staff-name rule to set the desired light weight (e.g., 300 or normal) */
 .staff-card .staff-name {
     font-size: 1.15em;
     color: #ffffff;
     margin: 10px 0;
     line-height: 1.4;
-    /* Set the desired lighter weight for ALL names */
-    font-weight: 300; 
+    /* FIX: Set all names to a light weight (no bolding) */
+    font-weight: 300;
 }
 
-/* REMOVE the :first-of-type selector that was creating the unwanted bolding */
-/* This rule is now GONE:
+/* The previous rule:
 .staff-card .staff-name:first-of-type {
     font-weight: 600; 
 }
+has been removed to achieve a consistent light font weight for all names.
 */
 
-.staff-card .staff-name:first-of-type {
-    font-weight: 600; 
-}
 
 /* Define Role Colors */
 .color-editor { --role-color: var(--accent-red); }
@@ -503,7 +491,12 @@ STAFF PAGE STYLES (staff.html)
 .staff-card.chemistry .role-title { background-color: var(--role-color); }
 .staff-card.physics .role-title { background-color: var(--role-color); }
 .staff-card.graphic .role-title { background-color: var(--role-color); }
-.staff-card.programming .role-title { background-color: var(--role-color); }
+
+.staff-card.programming .role-title { 
+    background-color: var(--role-color); 
+    /* FIX: Ensure title text is readable against the dark purple background */
+    color: #ffffff; 
+}
 
 /* Apply Hover Border with Glow */
 .staff-card.editor:hover { 
@@ -525,9 +518,6 @@ STAFF PAGE STYLES (staff.html)
 .staff-card.programming:hover { 
     border-color: #c08cf2;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(192, 140, 242, 0.3);
-}
-.staff-card .staff-name:first-of-type {
-    font-weight: 600; /* This is making the first name bold */
 }
 
 /* ===============================================
@@ -726,4 +716,24 @@ RESPONSIVE STYLES
 }
 
 @media (max-width: 768px) {
-    .navbar .container
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar nav ul {
+        margin-top: 15px;
+    }
+    .navbar nav ul li {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .staff-grid,
+    .edition-grid {
+        grid-template-columns: 1fr;
+    }
+    .navbar .logo {
+        font-size: 2em;
+    }
+}
