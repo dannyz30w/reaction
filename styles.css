@@ -1,404 +1,375 @@
-/* ================================
-  Modern UI + VFX Stylesheet
-  Replace your existing styles.css with this file.
-  - Uses CSS variables for easy theming
-  - Soft glassmorphism + layered shadows
-  - Accessible focus states & smooth transitions
-  - Lightweight (no external libraries)
-================================ */
+/* ===============================================
+COLOR PALETTE & VFX VARIABLES
+=============================================== */
 
-:root{
-  /* Theme / palette */
-  --bg: #0e0e0f;
-  --surface: #121214;
-  --muted: #bdbdbd;
-  --text: #f5f6f7;
-  --accent-1: #8cb8f2;   /* science blue */
-  --accent-2: #f2e28c;   /* graphic yellow */
-  --accent-3: #f28c8c;   /* warm coral */
-  --accent-4: #c08cf2;   /* programming purple */
-  --glass: rgba(255,255,255,0.04);
-  --glass-strong: rgba(255,255,255,0.06);
-  --card-shadow: 0 8px 30px rgba(2,6,23,0.6);
-  --card-elev: 0 18px 40px rgba(3,8,20,0.55);
-  --radius-lg: 14px;
-  --radius-md: 10px;
-  --max-width: 1200px;
-
-  /* Motion */
-  --ease-smooth: cubic-bezier(.2,.9,.2,1);
-  --slow: .45s;
-  --med: .28s;
-  --fast: .12s;
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-medium: #111111;
+    --bg-card: #181818;
+    --text-light: #eeeeee;
+    --text-faded: #b0b0b0;
+    --accent-blue: #70a4ff; /* Brighter Blue */
+    --accent-yellow: #fdd866; /* Brighter Yellow */
+    --accent-green: #66fdbd; /* Brighter Green */
+    --accent-red: #ff7070; /* Brighter Red */
+    --border-subtle: #333333;
+    --glass-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* -------------------------
-  Base reset + accessibility
-   - Respect reduced-motion
---------------------------*/
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
-  background: radial-gradient(1200px 600px at 10% 10%, rgba(140,184,242,0.03), transparent),
-              radial-gradient(1000px 600px at 90% 90%, rgba(192,140,242,0.02), transparent),
-              var(--bg);
-  color:var(--text);
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  scroll-behavior:smooth;
+/* ===============================================
+BASE STYLES & TYPOGRAPHY
+=============================================== */
+
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-medium);
+    color: var(--text-light);
+    line-height: 1.65;
+    scroll-behavior: smooth;
 }
 
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block;height:auto}
-
-/* Utility container */
-.container{
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:0 22px;
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* ====================
-  TYPOGRAPHY
-==================== */
-h1,h2,h3{font-family:"Playfair Display", Georgia, serif; margin:0}
-h1{font-size:clamp(28px,4.5vw,44px);line-height:1.02}
-h2{font-size:clamp(22px,2.1vw,34px)}
-h3{font-size:1.1rem}
-p{margin:0 0 12px 0;color:var(--muted)}
-
-/* ------------------------
-  NAVBAR
-------------------------- */
-.navbar{
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-  backdrop-filter: blur(6px) saturate(120%);
-  padding:18px 0;
-  position:sticky;
-  top:0;
-  z-index:60;
-}
-.navbar .container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-.logo{
-  font-family:"Playfair Display", serif;
-  font-size:1.6rem;
-  font-weight:700;
-  letter-spacing:0.6px;
-  color:var(--text);
-  display:flex;align-items:center;gap:10px;
-}
-.logo .dot{
-  width:12px;height:12px;border-radius:50%;
-  background:conic-gradient(from 120deg, var(--accent-1), var(--accent-2), var(--accent-3));
-  box-shadow:0 4px 10px rgba(0,0,0,0.6), inset 0 -1px 2px rgba(255,255,255,0.06);
-}
-nav ul{display:flex;gap:22px;align-items:center;margin:0;padding:0;list-style:none}
-nav a{
-  color:var(--muted);
-  font-weight:600;
-  padding:6px 8px;
-  border-radius:8px;
-  transition:color var(--med) var(--ease-smooth), transform var(--med) var(--ease-smooth);
-}
-nav a:hover, nav a:focus{
-  color:var(--text);
-  transform:translateY(-2px);
-  outline:none;
-}
-nav a:focus{box-shadow:0 0 0 3px rgba(140,184,242,0.12)}
-
-/* ------------------------
-  HERO
-------------------------- */
-.hero-section{
-  padding:64px 0;
-  display:block;
-}
-.hero{
-  display:flex;
-  gap:28px;
-  align-items:center;
-  justify-content:space-between;
-  padding:36px;
-  border-radius:var(--radius-lg);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  box-shadow: var(--card-shadow);
-  overflow:hidden;
-  position:relative;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* hero cover card */
-.cover-display{
-  min-width:320px;
-  max-width:36%;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.012));
-  border-radius:12px;
-  padding:14px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  border:1px solid rgba(255,255,255,0.03);
-  box-shadow: 0 10px 30px rgba(3,6,12,0.6);
-  transform-origin:center;
-  transition:transform var(--slow) var(--ease-smooth), box-shadow var(--med);
-}
-.cover-display:hover{ transform: translateY(-6px) scale(1.01); box-shadow:var(--card-elev) }
-
-/* journal cover image */
-.journal-cover{
-  width:100%;
-  border-radius:8px;
-  display:block;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.03);
+h2 {
+    color: var(--text-light);
+    font-size: 3em; /* Larger, more dominant headings */
+    font-weight: 800;
+    border-bottom: 4px solid var(--border-subtle);
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: 1px;
 }
 
-/* hero content right */
-.hero-content{
-  flex:1;
-  padding-left:18px;
-}
-.hero .siteline{
-  color:var(--muted);
-  font-weight:600;
-  margin-bottom:6px;
-  letter-spacing:0.6px;
-}
-.hero h1{ color:var(--text); margin:4px 0 10px }
-.hero p.lead{ color:var(--muted); font-size:1.05rem; max-width:70% }
+/* ===============================================
+NAVBAR & FOOTER
+=============================================== */
 
-/* subtle animated overlay (vfx) */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:-20% -10%;
-  background: radial-gradient(500px 200px at 10% 40%, rgba(140,184,242,0.04), transparent),
-              radial-gradient(400px 200px at 90% 70%, rgba(192,140,242,0.03), transparent);
-  pointer-events:none;
-  mix-blend-mode:screen;
-  transform:translateZ(0);
-  filter:blur(12px) saturate(120%);
+.navbar {
+    background-color: var(--bg-dark);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* ------------------------
-  QUOTE + BLURB
-------------------------- */
-.quote-section{
-  display:flex;
-  gap:22px;
-  align-items:center;
-  margin:34px 0;
-}
-.quote-big{
-  font-family:"Playfair Display", serif;
-  font-size: clamp(22px, 3.2vw, 30px);
-  color:var(--accent-1);
-  font-style:italic;
-  line-height:1.15;
-  max-width:78%;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-}
-.quick-blurb{
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-radius:12px;
-  padding:18px 16px;
-  border-left:6px solid var(--accent-2);
-  min-width:220px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.5);
-  color:var(--muted);
-  font-size:0.95rem;
+.navbar .logo {
+    font-size: 2.5em;
+    color: var(--text-light);
+    font-weight: 900;
 }
 
-/* ------------------------
-  MAIN GRID
-------------------------- */
-.content-grid{
-  display:grid;
-  grid-template-columns: 1fr 340px;
-  gap:30px;
-  align-items:start;
-  margin-bottom:40px;
+.navbar nav ul li {
+    margin-left: 40px;
 }
 
-/* EDITORIAL CARD LIST */
-.editorial-section{
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.007));
-  padding:22px;
-  border-radius:12px;
-  border: 1px solid rgba(255,255,255,0.03);
-  box-shadow: 0 12px 36px rgba(1,3,8,0.6);
-}
-.article-list{display:flex;flex-direction:column;gap:16px;margin-top:8px}
-.article{
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
-  padding:14px;
-  border-radius:10px;
-  transition:transform var(--med) var(--ease-smooth), box-shadow var(--med);
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-  border:1px solid rgba(255,255,255,0.02);
-}
-.article:hover{ transform:translateY(-6px); box-shadow: 0 14px 40px rgba(2,6,20,0.55); }
-.thumb{
-  width:88px;height:88px;border-radius:8px;background:linear-gradient(180deg,#111,#222);
-  display:flex;align-items:center;justify-content:center;color:var(--muted);
-  flex-shrink:0;border:1px solid rgba(255,255,255,0.03);
-}
-.meta .title{font-weight:700;color:var(--text);margin-bottom:6px}
-.meta .excerpt{color:var(--muted);font-size:0.95rem}
-
-/* MORE BUTTON */
-.more-btn{
-  display:inline-block;margin-top:16px;padding:10px 18px;border-radius:12px;
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-4));
-  color:#0b0b0b;font-weight:800;
-  box-shadow:0 8px 20px rgba(140,184,242,0.09);
-  transition:transform var(--fast) var(--ease-smooth), box-shadow var(--fast);
-}
-.more-btn:hover{ transform:translateY(-4px); box-shadow:0 18px 38px rgba(140,184,242,0.12) }
-
-/* ------------------------
-  SIDEBAR PANELS
-------------------------- */
-.panel{
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));
-  border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.55);
-}
-.panel h3{color:var(--accent-1);margin-bottom:8px}
-.panel p{color:var(--muted);font-size:0.95rem}
-
-/* download button style (pdf) */
-.download-button{
-  display:block;
-  width:100%;
-  margin-top:10px;
-  padding:10px 12px;
-  text-align:center;
-  border-radius:10px;
-  background: linear-gradient(90deg, var(--accent-3), var(--accent-2));
-  color:#071018;
-  font-weight:800;
-  letter-spacing:0.6px;
-  box-shadow: 0 8px 22px rgba(242,140,140,0.12);
-  transition: transform .18s var(--ease-smooth), box-shadow .18s;
-}
-.download-button:hover{ transform:translateY(-4px); box-shadow: 0 18px 40px rgba(242,140,140,0.18) }
-
-/* ------------------------
-  STAFF GRID
-------------------------- */
-.staff-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap:18px;
-  margin-top:22px;
-}
-.staff-card{
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.006));
-  border-radius: var(--radius-lg);
-  padding:26px;
-  text-align:center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  transition: transform var(--med) var(--ease-smooth), box-shadow var(--med);
-  position:relative;
-  overflow:hidden;
-}
-.staff-card::before{
-  content:"";
-  position:absolute; inset:0;
-  background: linear-gradient(120deg, rgba(255,255,255,0.01), transparent);
-  pointer-events:none;
-}
-.staff-card:hover{ transform:translateY(-6px); box-shadow: var(--card-elev) }
-
-/* gradient role title (two-tone) */
-.role{
-  font-family:"Playfair Display", serif;
-  font-size:1.1rem;
-  font-weight:700;
-  background: linear-gradient(90deg,var(--accent-3),var(--accent-1));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  margin-bottom:10px;
+.navbar nav ul li a {
+    color: var(--text-faded);
+    font-size: 1.1em;
+    font-weight: 600;
+    position: relative;
 }
 
-/* names list */
-.staff-card ul{list-style:none;padding:0;margin:0;color:var(--muted)}
-.staff-card li{margin:6px 0;font-weight:600;color:var(--text);opacity:0.95}
-
-/* colored accent bar at bottom for identity */
-.staff-card .accent-bar{
-  height:6px;border-radius:6px;margin-top:14px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-blue);
+    transition: width 0.3s ease;
 }
 
-/* color utility classes (use on outer staff-card element via class) */
-.staff-card.editor .accent-bar{ background: linear-gradient(90deg, #f28c8c, #f2e28c); }
-.staff-card.chemistry .accent-bar{ background: linear-gradient(90deg, #8cb8f2, #8cf2b8); }
-.staff-card.physics .accent-bar{ background: linear-gradient(90deg, #8cf2b8, #8cb8f2); }
-.staff-card.graphic .accent-bar{ background: linear-gradient(90deg, #f2e28c, #f28c8c); }
-.staff-card.programming .accent-bar{ background: linear-gradient(90deg, #c08cf2, #8cb8f2); }
-
-/* ------------------------
-  EDITIONS GRID
-------------------------- */
-.edition-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap:18px;
-}
-.edition-card{
-  padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-  border:1px solid rgba(255,255,255,0.02);
-  text-align:center;transition:transform .25s var(--ease-smooth), box-shadow .25s;
-}
-.edition-card:hover{ transform:translateY(-8px); box-shadow:0 22px 48px rgba(2,8,20,0.6); border-color: rgba(140,184,242,0.12) }
-.edition-cover{ width:100%; height:300px; object-fit:cover; border-radius:8px; margin-bottom:12px; border:1px solid rgba(0,0,0,0.3) }
-.edition-card.recent{ box-shadow:0 0 30px rgba(242,140,140,0.12); border-color: rgba(242,140,140,0.25) }
-
-/* ====================
-  FOOTER
-==================== */
-footer{
-  margin-top:40px;padding:28px 0;color:var(--muted);text-align:center;font-size:0.95rem;
-  border-top:1px solid rgba(255,255,255,0.02);
+.navbar nav ul li a:hover {
+    color: var(--accent-blue);
 }
 
-/* ====================
-  RESPONSIVE
-==================== */
-@media (max-width:1100px){
-  .content-grid{ grid-template-columns: 1fr 320px }
-  .hero{ flex-direction:column; gap:18px; padding:20px }
-  .cover-display{ max-width:320px; width:100% }
-  .hero p.lead{ max-width:100% }
+.navbar nav ul li a:hover::after {
+    width: 100%;
 }
 
-@media (max-width:800px){
-  nav ul{ gap:12px; flex-wrap:wrap; justify-content:center }
-  .content-grid{ grid-template-columns: 1fr; }
-  .quick-blurb{ display:none } /* hide the floating blurb for narrow screens */
-  .hero-content{ padding:0 }
-  .edition-cover{ height:220px }
+footer {
+    background-color: var(--bg-dark);
+    color: var(--text-faded);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.9em;
 }
 
-@media (prefers-reduced-motion: reduce){
-  *{ transition:none !important; animation:none !important; scroll-behavior: auto !important }
+
+/* ===============================================
+HOMEPAGE SECTIONS
+=============================================== */
+
+/* Hero Section */
+.hero-section {
+    padding: 80px 0;
+    text-align: center;
 }
 
-/* ====================
-  Small helpers
-==================== */
-.center{ text-align:center }
-.kicker{ color:var(--muted); font-weight:600; letter-spacing:1px; font-size:0.92rem }
-.small{ font-size:0.95rem; color:var(--muted) }
+.hero-section .cover-display {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    padding: 30px;
+    display: inline-block;
+    border-radius: 12px;
+    box-shadow: var(--glass-shadow);
+}
+
+.hero-section .journal-cover {
+    max-width: 320px;
+    border-radius: 6px;
+}
+
+/* Quote Section (Subtle Glass Effect) */
+.quote-section {
+    background-color: rgba(26, 26, 26, 0.8); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Glass effect */
+    padding: 70px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+}
+
+.quote-section .quote {
+    font-family: Georgia, serif;
+    font-size: 2.8em;
+    color: var(--accent-blue);
+    font-weight: 300;
+    text-shadow: 0 0 5px rgba(112, 164, 255, 0.5); /* Subtle glow */
+}
+
+.quick-blurb {
+    background-color: var(--bg-medium);
+    border-left: 5px solid var(--accent-yellow);
+    box-shadow: 0 0 10px rgba(253, 216, 102, 0.3); /* Yellow glow */
+}
+
+/* Content Grid */
+.content-grid {
+    padding: 60px 0;
+}
+
+.article-preview {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.article-preview:hover {
+    background-color: #222222;
+    transform: translateY(-3px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 8px 20px rgba(112, 164, 255, 0.2); /* Blue hover glow */
+}
+
+.article-box {
+    background-color: #3a3a3a;
+    color: var(--text-light);
+}
+
+.more-button {
+    background-color: var(--accent-yellow);
+    color: var(--bg-medium);
+    font-weight: 800;
+}
+
+.more-button:hover {
+    background-color: #ffd700;
+}
+
+.selected-articles,
+.activities {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ===============================================
+STAFF PAGE STYLES (staff.html) - Enhanced VFX
+=============================================== */
+
+.staff-card {
+    background-color: var(--bg-card);
+    border: 3px solid transparent;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.staff-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+}
+
+.staff-card .role-title {
+    font-size: 1.4em;
+    font-weight: 800; /* Bold titles */
+    color: var(--bg-medium); /* Dark text on color for contrast */
+}
+
+.staff-card .staff-name {
+    color: var(--text-light); /* Ensure names are bright white */
+    font-weight: 400;
+}
+
+/* Define Role Colors & Hover Glows (Using VFX) */
+.staff-card.editor:hover { 
+    border-color: var(--accent-red); 
+    box-shadow: 0 0 20px rgba(255, 112, 112, 0.4); 
+}
+.staff-card.chemistry:hover { 
+    border-color: var(--accent-blue); 
+    box-shadow: 0 0 20px rgba(112, 164, 255, 0.4); 
+}
+.staff-card.physics:hover { 
+    border-color: var(--accent-green); 
+    box-shadow: 0 0 20px rgba(102, 253, 189, 0.4); 
+}
+.staff-card.graphic:hover { 
+    border-color: var(--accent-yellow); 
+    box-shadow: 0 0 20px rgba(253, 216, 102, 0.4); 
+}
+.staff-card.programming:hover { 
+    border-color: #c08cf2; 
+    box-shadow: 0 0 20px rgba(192, 140, 242, 0.4); 
+}
+
+/* Base Role Colors */
+.staff-card.editor .role-title { background-color: var(--accent-red); }
+.staff-card.chemistry .role-title { background-color: var(--accent-blue); }
+.staff-card.physics .role-title { background-color: var(--accent-green); }
+.staff-card.graphic .role-title { background-color: var(--accent-yellow); }
+.staff-card.programming .role-title { background-color: #c08cf2; }
+
+
+/* ===============================================
+ABOUT PAGE STYLES - Enhanced Contrast
+=============================================== */
+
+.about-content {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--glass-shadow);
+}
+
+.about-content p {
+    color: var(--text-faded);
+}
+
+.about-content .meeting-info {
+    color: var(--accent-green); /* Meeting info in bright green */
+}
+
+.award-box {
+    background-color: var(--bg-medium);
+    border-left: 5px solid var(--accent-yellow);
+}
+
+.award-box h3 {
+    color: var(--accent-yellow);
+}
+
+/* ===============================================
+PAST EDITIONS PAGE STYLES - Focused Display
+=============================================== */
+
+.edition-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+}
+
+.edition-card:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 8px 15px rgba(112, 164, 255, 0.2);
+}
+
+.edition-cover {
+    background-color: var(--bg-dark);
+}
+
+.edition-card.recent {
+    border: 3px solid var(--accent-red); /* Thicker border for recent */
+    box-shadow: 0 0 15px rgba(255, 112, 112, 0.4);
+}
+
+.edition-card.award-winning {
+    border: 3px solid var(--accent-yellow);
+    box-shadow: 0 0 15px rgba(253, 216, 102, 0.4);
+}
+
+.edition-card h3 {
+    color: var(--accent-blue);
+}
+
+.download-button {
+    background-color: var(--accent-blue);
+    color: var(--bg-dark);
+    font-weight: 700;
+}
+
+.download-button:hover {
+    background-color: #4f80e0;
+}
+
+/* ===============================================
+RESPONSIVE STYLES
+=============================================== */
+
+@media (max-width: 1000px) {
+    .content-grid .container {
+        flex-direction: column;
+    }
+    .quick-blurb {
+        position: static;
+        transform: none;
+        margin: 20px auto 0;
+        max-width: unset;
+        width: 90%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar nav ul {
+        margin-top: 15px;
+    }
+    .navbar nav ul li {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .staff-grid,
+    .edition-grid {
+        grid-template-columns: 1fr;
+    }
+    .navbar .logo {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+}
