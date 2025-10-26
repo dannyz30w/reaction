@@ -374,10 +374,11 @@ HOMEPAGE STYLES (index.html)
     gap: 40px; /* Increased gap for better separation */
 }
 
-/* NEW: Article Grid and Card Styles (Replaces article-preview-grid) */
+/* CORRECTED: Article Grid and Card Styles (Replaces article-preview-grid) */
 .article-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns for recent articles */
+    /* This rule ensures 4 columns are attempted, with wrapping */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     gap: 25px;
     margin-top: 20px;
 }
@@ -510,7 +511,7 @@ STAFF PAGE STYLES (staff.html)
     border-radius: 4px;
     display: inline-block;
     font-weight: 700;
-    /* FIX: Ensure role title text is visible against dark card backgrounds */
+    /* Ensure role title text is visible against dark card backgrounds */
     color: #ffffff; 
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -522,7 +523,7 @@ STAFF PAGE STYLES (staff.html)
     color: #ffffff;
     margin: 10px 0;
     line-height: 1.4;
-    /* FIX: Set all names to a light weight (no bolding) */
+    /* Set all names to a light weight (no bolding) */
     font-weight: 300;
 }
 
@@ -752,6 +753,7 @@ RESPONSIVE STYLES
         flex-direction: column;
     }
     .article-grid {
+        /* On medium screens, switch to two columns */
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
     .picks-grid {
@@ -794,6 +796,7 @@ RESPONSIVE STYLES
         font-size: 2em;
     }
     .article-grid {
+        /* On small screens, switch to single column */
         grid-template-columns: 1fr;
     }
     .picks-grid {
