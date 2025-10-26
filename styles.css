@@ -1,14 +1,24 @@
 /* ===============================================
-BASE STYLES & LAYOUT (index.html)
+COLOR PALETTE
+-- Background: #111111 (Deep Black)
+-- Primary Text: #f0f0f0 (Off-White/Light Gray)
+-- Accent Blue (Science): #8cb8f2
+-- Accent Yellow (Graphic): #f2e28c
+-- Secondary Dark: #1a1a1a, #222222
+=============================================== */
+
+/* ===============================================
+BASE STYLES & LAYOUT
 =============================================== */
 
 /* Basic Reset & Body Styling */
 body {
     margin: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Slightly more modern font */
-    background-color: #111111; /* Deeper Dark background */
-    color: #f0f0f0; /* Light text */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #111111;
+    color: #f0f0f0;
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -17,11 +27,22 @@ body {
     padding: 0 20px;
 }
 
+h2 {
+    color: #ffffff;
+    font-size: 2.5em; /* Increased size for impact */
+    font-weight: 700;
+    border-bottom: 3px solid #333;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
 /* Navbar */
 .navbar {
     background-color: #0d0d0d;
-    padding: 15px 0;
-    border-bottom: 3px solid #333333; /* Thicker border */
+    padding: 20px 0; /* Increased padding */
+    border-bottom: 5px solid #222222; /* Thicker, defined bottom */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .navbar .container {
@@ -32,10 +53,10 @@ body {
 
 .navbar .logo {
     margin: 0;
-    font-size: 2.2em; /* Slightly larger logo */
+    font-size: 2.5em; /* Larger logo */
     color: #ffffff;
     line-height: 1; 
-    font-weight: 700;
+    font-weight: 900; /* Extra bold */
 }
 
 .navbar nav ul {
@@ -46,38 +67,56 @@ body {
 }
 
 .navbar nav ul li {
-    margin-left: 30px;
+    margin-left: 35px;
 }
 
 .navbar nav ul li a {
     color: #a0a0a0;
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1.15em;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 5px;
 }
 
 .navbar nav ul li a:hover {
-    color: #ffffff;
+    color: #8cb8f2; /* Accent blue on hover */
+    border-bottom: 2px solid #8cb8f2;
 }
+
+/* Footer */
+footer {
+    background-color: #0d0d0d;
+    color: #777;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top: 5px solid #222222;
+    font-size: 0.9em;
+}
+
+
+/* ===============================================
+HOMEPAGE STYLES (index.html)
+=============================================== */
 
 /* Hero Section */
 .hero-section {
-    padding: 60px 0;
+    padding: 80px 0; /* More vertical space */
     text-align: center;
 }
 
 .hero-section .cover-display {
-    background-color: #222222;
-    border: 1px solid #444;
-    padding: 25px;
+    background-color: #1a1a1a;
+    border: 3px solid #444; /* Thicker border */
+    padding: 30px;
     display: inline-block;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
 }
 
 .hero-section .journal-cover {
-    max-width: 300px;
+    max-width: 320px; /* Slightly larger cover */
     height: auto;
     display: block;
     margin: 0 auto 15px;
@@ -86,7 +125,7 @@ body {
 /* Quote Section */
 .quote-section {
     background-color: #1a1a1a;
-    padding: 50px 0;
+    padding: 70px 0; /* More vertical space */
     text-align: center;
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
@@ -94,32 +133,34 @@ body {
 }
 
 .quote-section .quote {
-    font-family: Georgia, serif; /* Serif font for the quote */
-    font-size: 2.5em;
+    font-family: Georgia, serif;
+    font-size: 2.8em; /* Prominent quote */
     font-style: italic;
-    color: #eeeeee;
-    margin-bottom: 10px;
+    color: #8cb8f2; /* Quote in accent color */
+    margin-bottom: 15px;
+    font-weight: 300;
 }
 
 .quote-section .author {
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: #aaaaaa;
     margin-top: 0;
 }
 
 .quick-blurb {
     position: absolute;
-    left: 20px;
+    left: 40px;
     top: 50%;
     transform: translateY(-50%);
     background-color: #2a2a2a;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 0.9em;
+    padding: 18px;
+    border-radius: 8px;
+    font-size: 1em;
     color: #cccccc;
     text-align: left;
-    max-width: 150px;
-    border-left: 3px solid #8cf2b8; /* Green accent */
+    max-width: 180px;
+    border-left: 5px solid #f2e28c; /* Yellow accent */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 .quick-blurb p {
     margin: 5px 0;
@@ -147,54 +188,47 @@ body {
     gap: 30px;
 }
 
-h2 {
-    color: #ffffff;
-    font-size: 2em;
-    border-bottom: 2px solid #444;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    font-weight: 600;
-}
-
-/* Article Grid Styling */
+/* Editorial Articles */
 .article-preview-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     margin-top: 20px;
 }
 
 .article-preview {
-    background-color: #222222;
-    padding: 20px;
+    background-color: #1a1a1a;
+    padding: 25px;
     border-radius: 8px;
-    border: 1px solid #444;
-    transition: background-color 0.3s;
+    border: 1px solid #333;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 .article-preview:hover {
-    background-color: #2a2a2a;
+    background-color: #222222;
+    border-color: #8cb8f2;
 }
 
 .article-box {
-    background-color: #3a3a3a;
-    color: #fff;
+    background-color: #333333;
+    color: #ffffff;
     padding: 15px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 15px;
     border-radius: 4px;
+    font-size: 1.1em;
 }
 
 .more-button {
-    background-color: #f2e28c; /* Yellow accent color */
+    background-color: #f2e28c;
     color: #111111;
-    padding: 12px 25px;
+    padding: 15px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 1.1em;
-    font-weight: bold;
-    margin-top: 30px;
+    font-weight: 700;
+    margin-top: 40px;
     transition: background-color 0.3s ease;
 }
 
@@ -209,20 +243,12 @@ h2 {
     padding: 25px;
     border-radius: 8px;
     border: 1px solid #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Footer */
-footer {
-    background-color: #0d0d0d;
-    color: #aaa;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
-    border-top: 3px solid #333;
-}
 
 /* ===============================================
-IMPROVED STAFF PAGE STYLES
+STAFF PAGE STYLES (staff.html)
 =============================================== */
 
 .staff-page {
@@ -238,72 +264,70 @@ IMPROVED STAFF PAGE STYLES
     margin-left: auto;
     margin-right: auto;
     font-style: italic;
+    font-weight: 300;
 }
 
 .staff-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted width */
     gap: 30px;
     justify-content: center;
 }
 
 .staff-card {
-    /* Significantly brighter background for contrast */
-    background-color: #1a1a1a; 
-    border: 1px solid #333; /* Softer border */
-    border-radius: 10px; 
-    padding: 40px 20px; 
+    background-color: #1a1a1a;
+    border: 3px solid transparent; /* Start with transparent border */
+    border-radius: 15px; /* Softer rounded corners */
+    padding: 50px 20px; /* More vertical padding */
     text-align: center;
-    /* Stronger, more noticeable shadow */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .staff-card:hover {
-    transform: translateY(-8px);
-    /* Lighter border and shadow for a "lifted" effect */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7); 
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
 .staff-card .role-title {
-    font-size: 1.3em; /* Slightly larger, clearer title */
+    font-size: 1.4em; /* Larger, more readable title */
     margin-top: 0;
-    margin-bottom: 25px;
-    padding: 6px 14px; 
-    border-radius: 4px; /* Square/Subtle badge for professional look */
+    margin-bottom: 30px;
+    padding: 8px 16px; 
+    border-radius: 4px;
     display: inline-block;
-    font-weight: 700; /* Bold title */
-    color: #111111; /* Dark text on colored background for HIGH CONTRAST */
+    font-weight: 700;
+    color: #111111; /* Dark text on color for contrast */
     text-transform: uppercase;
     letter-spacing: 1.5px;
 }
 
 .staff-card .staff-name {
-    font-size: 1.1em;
-    color: #ffffff; /* PURE WHITE for highest name contrast */
+    font-size: 1.15em;
+    color: #ffffff;
     margin: 10px 0;
     line-height: 1.4;
-    font-weight: 400;
+    font-weight: 300; /* Lighter font weight for names */
 }
 .staff-card .staff-name:first-of-type {
-    font-weight: 600; /* Bold the first name/leader in the list */
+    font-weight: 600; 
 }
 
 /* Define Role Colors */
-.color-editor { --role-color: #f28c8c; } /* Soft Red/Pink */
-.color-chemistry { --role-color: #8cb8f2; } /* Soft Blue */
-.color-physics { --role-color: #8cf2b8; } /* Soft Green */
-.color-graphic { --role-color: #f2e28c; } /* Soft Yellow */
-.color-programming { --role-color: #c08cf2; } /* Soft Purple */
+.color-editor { --role-color: #f28c8c; } 
+.color-chemistry { --role-color: #8cb8f2; }
+.color-physics { --role-color: #8cf2b8; }
+.color-graphic { --role-color: #f2e28c; }
+.color-programming { --role-color: #c08cf2; }
 
-/* Apply Colors using variables */
+/* Apply Colors */
 .staff-card.editor .role-title { background-color: var(--role-color); }
 .staff-card.chemistry .role-title { background-color: var(--role-color); }
-.staff-card.physics .role-title { background-color: var(--role-color); }
+.staff-card.physics .role-title .staff-card.physics:hover { border-color: #8cf2b8; }
 .staff-card.graphic .role-title { background-color: var(--role-color); }
 .staff-card.programming .role-title { background-color: var(--role-color); }
 
-/* Apply Hover Border - Border gets colored on hover */
+/* Apply Hover Border */
 .staff-card.editor:hover { border-color: #f28c8c; }
 .staff-card.chemistry:hover { border-color: #8cb8f2; }
 .staff-card.physics:hover { border-color: #8cf2b8; }
@@ -311,7 +335,7 @@ IMPROVED STAFF PAGE STYLES
 .staff-card.programming:hover { border-color: #c08cf2; }
 
 /* ===============================================
-ABOUT PAGE STYLES
+ABOUT PAGE STYLES (about.html)
 =============================================== */
 
 .about-page {
@@ -388,7 +412,7 @@ ABOUT PAGE STYLES
 
 
 /* ===============================================
-PAST EDITIONS PAGE STYLES
+PAST EDITIONS PAGE STYLES (past-editions.html)
 =============================================== */
 
 .editions-page {
@@ -476,17 +500,8 @@ PAST EDITIONS PAGE STYLES
 RESPONSIVE STYLES
 =============================================== */
 
-@media (max-width: 768px) {
-    .navbar .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .navbar nav ul {
-        margin-top: 15px;
-    }
-    .navbar nav ul li {
-        margin: 0 10px;
-    }
+@media (max-width: 1000px) {
+    /* Adjust sidebar on medium screens */
     .content-grid .container {
         flex-direction: column;
     }
@@ -500,9 +515,25 @@ RESPONSIVE STYLES
     }
 }
 
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar nav ul {
+        margin-top: 15px;
+    }
+    .navbar nav ul li {
+        margin: 0 10px;
+    }
+}
+
 @media (max-width: 600px) {
     .staff-grid,
     .edition-grid {
         grid-template-columns: 1fr;
+    }
+    .navbar .logo {
+        font-size: 2em;
     }
 }
