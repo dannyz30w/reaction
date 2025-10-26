@@ -470,13 +470,22 @@ STAFF PAGE STYLES (staff.html)
     color: #ffffff;
 }
 
+/* Change the general staff-name rule to set the desired light weight (e.g., 300 or normal) */
 .staff-card .staff-name {
     font-size: 1.15em;
     color: #ffffff;
     margin: 10px 0;
     line-height: 1.4;
-    font-weight: 300;
+    /* Set the desired lighter weight for ALL names */
+    font-weight: 300; 
 }
+
+/* REMOVE the :first-of-type selector that was creating the unwanted bolding */
+/* This rule is now GONE:
+.staff-card .staff-name:first-of-type {
+    font-weight: 600; 
+}
+*/
 
 .staff-card .staff-name:first-of-type {
     font-weight: 600; 
@@ -516,6 +525,9 @@ STAFF PAGE STYLES (staff.html)
 .staff-card.programming:hover { 
     border-color: #c08cf2;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(192, 140, 242, 0.3);
+}
+.staff-card .staff-name:first-of-type {
+    font-weight: 600; /* This is making the first name bold */
 }
 
 /* ===============================================
