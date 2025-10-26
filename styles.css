@@ -260,13 +260,50 @@ HOMEPAGE STYLES (index.html)
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 60px rgba(140, 184, 242, 0.3);
 }
 
+/* NEW: Title above cover image */
+.hero-section .journal-title {
+    color: var(--accent-yellow);
+    font-size: 2.2em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(242, 228, 140, 0.5);
+}
+
 .hero-section .journal-cover {
     max-width: 320px;
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 20px auto; /* Added margin to separate from button */
     border-radius: 8px;
+    transition: box-shadow 0.3s ease;
 }
+
+.hero-section .cover-link:hover .journal-cover {
+    box-shadow: 0 0 20px rgba(140, 184, 242, 0.5);
+}
+
+.download-button {
+    background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffd700 100%);
+    color: #111111;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(242, 228, 140, 0.3);
+    display: inline-block; /* Make it look like a button */
+    text-decoration: none;
+}
+
+.download-button:hover {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(242, 228, 140, 0.5);
+}
+
 
 /* Quote Section */
 .quote-section {
@@ -334,68 +371,77 @@ HOMEPAGE STYLES (index.html)
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 40px; /* Increased gap for better separation */
 }
 
-/* Editorial Articles */
-.article-preview-grid {
+/* NEW: Article Grid and Card Styles (Replaces article-preview-grid) */
+.article-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* Two columns for recent articles */
     gap: 25px;
     margin-top: 20px;
 }
 
-.article-preview {
+.picks-grid {
+    display: flex;
+    flex-direction: column; /* Stacks the two editor's picks vertically */
+    gap: 25px;
+}
+
+.article-card {
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(30, 25, 40, 0.8) 100%);
     backdrop-filter: blur(8px);
-    padding: 25px;
     border-radius: 12px;
     border: 1px solid rgba(140, 184, 242, 0.2);
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    overflow: hidden; /* Ensures image corners are contained */
 }
 
-.article-preview:hover {
+.article-card:hover {
     background: linear-gradient(135deg, rgba(42, 42, 42, 0.9) 0%, rgba(45, 35, 60, 0.9) 100%);
     border-color: rgba(140, 184, 242, 0.6);
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(140, 184, 242, 0.2);
 }
 
-.article-box {
-    background: linear-gradient(135deg, rgba(58, 58, 58, 0.9) 0%, rgba(60, 50, 75, 0.9) 100%);
-    color: #fff;
+.article-cover {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(140, 184, 242, 0.2);
+}
+
+.card-caption {
     padding: 15px;
     text-align: center;
+}
+
+.card-caption h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: var(--text-light);
+    border-bottom: none;
+    padding-bottom: 0;
+    text-shadow: none;
+}
+
+.card-caption a {
     font-weight: 600;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    font-size: 1.1em;
-    border: 1px solid rgba(140, 184, 242, 0.2);
+    font-size: 1em;
 }
 
-.more-button {
-    background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffd700 100%);
-    color: #111111;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1em;
+.activity-card .activity-caption {
+    font-size: 1.2em;
     font-weight: 700;
-    margin-top: 40px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(242, 228, 140, 0.3);
-}
-
-.more-button:hover {
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(242, 228, 140, 0.5);
+    color: var(--accent-green);
+    margin-bottom: 5px;
 }
 
 /* Sidebar Specifics */
-.selected-articles,
+.editor-picks,
 .activities {
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(30, 25, 40, 0.8) 100%);
     backdrop-filter: blur(8px);
@@ -403,6 +449,14 @@ HOMEPAGE STYLES (index.html)
     border-radius: 8px;
     border: 1px solid rgba(140, 184, 242, 0.2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.editor-picks h2, .activities h2 {
+    margin-top: 0;
+    text-align: left;
+    font-size: 2em;
+    border-bottom: 3px solid rgba(242, 140, 140, 0.3); /* Using red accent for picks/activities */
+    text-shadow: 0 0 20px rgba(242, 140, 140, 0.3);
 }
 
 /* ===============================================
@@ -456,7 +510,7 @@ STAFF PAGE STYLES (staff.html)
     border-radius: 4px;
     display: inline-block;
     font-weight: 700;
-    /* FIX: Change default role title color to white for contrast against dark, colored backgrounds */
+    /* FIX: Ensure role title text is visible against dark card backgrounds */
     color: #ffffff; 
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -486,7 +540,6 @@ STAFF PAGE STYLES (staff.html)
 .staff-card.graphic .role-title { background-color: var(--role-color); }
 .staff-card.programming .role-title { 
     background-color: var(--role-color); 
-    /* This line is now redundant but kept as a strong override */
     color: #ffffff; 
 }
 
@@ -669,6 +722,7 @@ PAST EDITIONS PAGE STYLES (past-editions.html)
 }
 
 .download-button {
+    /* Styles are defined in hero section for the main button, keeping this general one for past-editions */
     display: block;
     width: 90%;
     margin: 0 auto;
@@ -696,6 +750,17 @@ RESPONSIVE STYLES
 @media (max-width: 1000px) {
     .content-grid .container {
         flex-direction: column;
+    }
+    .article-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .picks-grid {
+        flex-direction: row; /* Layout picks side-by-side on tablet/small screen */
+        justify-content: space-around;
+        gap: 15px;
+    }
+    .editor-picks .article-card {
+        flex: 1;
     }
     .quick-blurb {
         position: static;
@@ -727,5 +792,11 @@ RESPONSIVE STYLES
     }
     .navbar .logo {
         font-size: 2em;
+    }
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
+    .picks-grid {
+        flex-direction: column;
     }
 }
