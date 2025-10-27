@@ -12,7 +12,8 @@ COLOR PALETTE & VARIABLES
     --accent-yellow: #f2e28c;
     --accent-green: #8cf2b8;
     --accent-red: #f28c8c;
-    --accent-purple: #c08cf2;
+    --accent-purple: #c08cf2; 
+    --accent-teal: #8cf2f2; /* Color for Outreach */
     --border-subtle: #333;
 }
 
@@ -213,6 +214,19 @@ NAVBAR WITH COSMIC EFFECTS
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* NEW: Styles for logo container and icon */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between icon and text */
+}
+
+.header-logo-icon {
+    height: 50px; /* Adjust size as needed */
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(140, 184, 242, 0.5));
 }
 
 .navbar .logo {
@@ -619,43 +633,14 @@ ARTICLE CARDS WITH COSMIC HOVER EFFECTS
     filter: brightness(1.1);
 }
 
+/* Reduced padding for empty caption */
 .card-caption {
-    padding: 20px;
+    padding: 5px; 
     text-align: center;
+    min-height: 5px; /* Ensures div doesn't collapse entirely */
 }
 
-.card-caption h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-size: 1.2em;
-    color: var(--text-light);
-    border-bottom: none;
-    padding-bottom: 0;
-    text-shadow: none;
-    transition: all 0.3s ease;
-}
-
-.article-card:hover .card-caption h3 {
-    color: var(--accent-blue);
-    text-shadow: 0 0 10px rgba(140, 184, 242, 0.4);
-}
-
-.card-caption a {
-    font-weight: 600;
-    font-size: 1em;
-    position: relative;
-    display: inline-block;
-}
-
-.card-caption a::after {
-    content: '→';
-    margin-left: 5px;
-    transition: margin-left 0.3s ease;
-}
-
-.card-caption a:hover::after {
-    margin-left: 10px;
-}
+/* Styles for h3 and a removed as they are not used in card-caption anymore */
 
 .activity-card .activity-caption {
     font-size: 1.2em;
@@ -775,7 +760,7 @@ STAFF PAGE WITH ROLE ANIMATIONS
     border-radius: 50px;
     display: inline-block;
     font-weight: 700;
-    color: #ffffff;
+    color: #ffffff; /* Default color set to white */
     text-transform: uppercase;
     letter-spacing: 2px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -808,8 +793,10 @@ STAFF PAGE WITH ROLE ANIMATIONS
 .color-physics { --role-color: var(--accent-green); }
 .color-graphic { --role-color: var(--accent-yellow); }
 .color-programming { --role-color: var(--accent-purple); }
+.color-outreach { --role-color: var(--accent-teal); } /* Added Outreach color variable reference */
 
 /* Apply Colors with proper contrast */
+/* Using background-color for titles again, and ensuring text is black for high contrast */
 .staff-card.editor .role-title { 
     background-color: var(--role-color);
     color: #0a0a0a;
@@ -831,6 +818,11 @@ STAFF PAGE WITH ROLE ANIMATIONS
     font-weight: 800;
 }
 .staff-card.programming .role-title { 
+    background-color: var(--role-color);
+    color: #0a0a0a;
+    font-weight: 800;
+}
+.staff-card.outreach .role-title {
     background-color: var(--role-color);
     color: #0a0a0a;
     font-weight: 800;
@@ -866,6 +858,12 @@ STAFF PAGE WITH ROLE ANIMATIONS
     box-shadow: 
         0 16px 48px rgba(0, 0, 0, 0.8), 
         0 0 50px rgba(192, 140, 242, 0.4);
+}
+.staff-card.outreach:hover { 
+    border-color: var(--accent-teal);
+    box-shadow: 
+        0 16px 48px rgba(0, 0, 0, 0.8), 
+        0 0 50px rgba(140, 242, 242, 0.4); /* Teal glow */
 }
 
 /* ===============================================
@@ -1333,4 +1331,25 @@ button:focus {
     footer {
         background: #000;
     }
+}
+
+/* Added Outreach color variable */
+:root {
+    /* ... other variables ... */
+    --accent-teal: #8cf2f2; 
+}
+
+/* Apply Outreach color */
+.staff-card.outreach .role-title {
+    background-color: var(--role-color);
+    color: #0a0a0a;
+    font-weight: 800;
+}
+
+/* Apply Outreach hover border */
+.staff-card.outreach:hover { 
+    border-color: var(--accent-teal);
+    box-shadow: 
+        0 16px 48px rgba(0, 0, 0, 0.8), 
+        0 0 50px rgba(140, 242, 242, 0.4); /* Teal glow */
 }
