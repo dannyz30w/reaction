@@ -638,6 +638,10 @@ ARTICLE CARDS WITH COSMIC HOVER EFFECTS
     padding: 5px; 
     text-align: center;
     min-height: 5px; /* Ensures div doesn't collapse entirely */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Styles for h3 and a removed as they are not used in card-caption anymore */
@@ -648,6 +652,62 @@ ARTICLE CARDS WITH COSMIC HOVER EFFECTS
     color: var(--accent-green);
     margin-bottom: 5px;
     text-shadow: 0 0 15px rgba(140, 242, 184, 0.4);
+}
+
+/* ===============================================
+GENERAL BUTTON STYLING (For Articles and Activities)
+=============================================== */
+
+/* Base style for all view/activity buttons */
+.article-view-button, 
+.activities-button {
+    color: #0a0a0a;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.95em; 
+    font-weight: 700;
+    margin-top: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* 1. Article View Button (using --accent-blue) */
+.article-view-button {
+    background: var(--accent-blue);
+    box-shadow: 0 4px 10px rgba(140, 184, 242, 0.4);
+}
+
+/* 2. Activities Button (using --accent-green) */
+.activities-button {
+    background: var(--accent-green);
+    box-shadow: 0 4px 10px rgba(140, 242, 184, 0.4);
+    /* Specific margin adjustment for the activity card */
+    margin-bottom: 5px; 
+}
+
+
+/* Hover effect for both buttons */
+.article-view-button:hover,
+.activities-button:hover {
+    transform: translateY(-2px) scale(1.03); /* Lifts and slightly enlarges */
+    /* Shared box shadow for a professional glow */
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.2), /* Deeper shadow below */
+        0 0 40px rgba(255, 255, 255, 0.2); /* Subtle glow effect */
+    color: #0a0a0a;
+}
+
+/* Specific hover color adjustment for blue button */
+.article-view-button:hover {
+    background: #b4d4ff; 
+}
+
+/* Specific hover color adjustment for green button */
+.activities-button:hover {
+    background: #b8ffdc;
 }
 
 /* ===============================================
@@ -1279,77 +1339,4 @@ RESPONSIVE STYLES WITH SMOOTH TRANSITIONS
     .article-grid {
         grid-template-columns: 1fr;
     }
-    
-    .picks-grid {
-        flex-direction: column;
-    }
-    
-    .hero-section .cover-display {
-        padding: 25px;
-    }
-    
-    .about-content {
-        padding: 30px;
-    }
-}
-
-/* ===============================================
-ACCESSIBILITY & PERFORMANCE
-=============================================== */
-
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Focus styles for accessibility */
-a:focus,
-button:focus {
-    outline: 2px solid var(--accent-blue);
-    outline-offset: 2px;
-}
-
-/* Print styles */
-@media print {
-    body::before,
-    body::after {
-        display: none;
-    }
-    
-    .navbar,
-    footer {
-        background: #000;
-    }
-}
-
-/* Added Outreach color variable */
-:root {
-    /* ... other variables ... */
-    --accent-teal: #8cf2f2; 
-}
-
-/* Apply Outreach color */
-.staff-card.outreach .role-title {
-    background-color: var(--role-color);
-    color: #0a0a0a;
-    font-weight: 800;
-}
-
-/* Apply Outreach hover border */
-.staff-card.outreach:hover { 
-    border-color: var(--accent-teal);
-    box-shadow: 
-        0 16px 48px rgba(0, 0, 0, 0.8), 
-        0 0 50px rgba(140, 242, 242, 0.4); /* Teal glow */
 }
