@@ -1,6 +1,3 @@
-/* ===============================================
-COLOR PALETTE & VARIABLES
-=============================================== */
 
 :root {
     --bg-dark: #0a0a0a;
@@ -13,18 +10,14 @@ COLOR PALETTE & VARIABLES
     --accent-green: #8cf2b8;
     --accent-red: #f28c8c;
     --accent-purple: #c08cf2; 
-    --accent-teal: #8cf2f2; /* Color for Outreach */
+    --accent-teal: #8cf2f2; 
     --border-subtle: #333;
 }
 
-/* ===============================================
-BASE STYLES & ENHANCED COSMIC BACKGROUND
-=============================================== */
 
 body {
     margin: 0;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    /* Updated Cosmic Background */
     background: 
         radial-gradient(ellipse at 15% 25%, rgba(140, 184, 242, 0.15) 0%, transparent 50%),
         radial-gradient(ellipse at 85% 75%, rgba(192, 140, 242, 0.15) 0%, transparent 50%),
@@ -40,7 +33,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Shooting stars animation */
 body::before {
     content: '';
     position: fixed;
@@ -71,7 +63,6 @@ body::before {
     opacity: 0.4;
 }
 
-/* Twinkling stars layer */
 body::after {
     content: '';
     position: fixed;
@@ -117,7 +108,6 @@ body::after {
     75% { opacity: 0.4; }
 }
 
-/* Floating particles */
 @keyframes float-particle {
     0%, 100% { 
         transform: translateY(0) translateX(0); 
@@ -137,15 +127,12 @@ body::after {
     }
 }
 
-/* Ensure content stays above background */
 .navbar, .container, footer {
     position: relative;
     z-index: 1;
 }
 
-/* ===============================================
-TYPOGRAPHY WITH GLOW EFFECTS
-=============================================== */
+
 
 a {
     color: var(--accent-blue);
@@ -183,9 +170,6 @@ h2 {
     50% { text-shadow: 0 0 30px rgba(140, 184, 242, 0.6), 0 0 40px rgba(140, 184, 242, 0.3); }
 }
 
-/* ===============================================
-NAVBAR WITH COSMIC EFFECTS
-=============================================== */
 
 .navbar {
     background: rgba(8, 5, 16, 0.85);
@@ -216,15 +200,15 @@ NAVBAR WITH COSMIC EFFECTS
     align-items: center;
 }
 
-/* NEW: Styles for logo container and icon */
+
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 15px; /* Space between icon and text */
+    gap: 15px; 
 }
 
 .header-logo-icon {
-    height: 50px; /* Adjust size as needed */
+    height: 50px; 
     width: auto;
     filter: drop-shadow(0 0 10px rgba(140, 184, 242, 0.5));
 }
@@ -299,9 +283,6 @@ footer {
     box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.6);
 }
 
-/* ===============================================
-HERO SECTION WITH COSMIC ANIMATIONS
-=============================================== */
 
 .hero-section {
     padding: 80px 0;
@@ -445,9 +426,7 @@ HERO SECTION WITH COSMIC ANIMATIONS
     transform: translateY(-1px) scale(1.02);
 }
 
-/* ===============================================
-QUOTE SECTION WITH ETHEREAL EFFECTS
-=============================================== */
+
 
 .quote-section {
     background: rgba(13, 10, 26, 0.5);
@@ -526,9 +505,6 @@ QUOTE SECTION WITH ETHEREAL EFFECTS
     margin: 0;
 }
 
-/* ===============================================
-CONTENT GRID WITH STAGGERED ANIMATIONS
-=============================================== */
 
 .content-grid {
     padding: 60px 0;
@@ -550,9 +526,7 @@ CONTENT GRID WITH STAGGERED ANIMATIONS
     gap: 40px;
 }
 
-/* ===============================================
-ARTICLE CARDS WITH COSMIC HOVER EFFECTS
-=============================================== */
+
 
 .article-grid {
     display: grid;
@@ -633,18 +607,18 @@ ARTICLE CARDS WITH COSMIC HOVER EFFECTS
     filter: brightness(1.1);
 }
 
-/* Reduced padding for empty caption */
+
 .card-caption {
     padding: 5px; 
     text-align: center;
-    min-height: 5px; /* Ensures div doesn't collapse entirely */
+    min-height: 5px; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-/* Styles for h3 and a removed as they are not used in card-caption anymore */
+
 
 .activity-card .activity-caption {
     font-size: 1.2em;
@@ -654,9 +628,6 @@ ARTICLE CARDS WITH COSMIC HOVER EFFECTS
     text-shadow: 0 0 15px rgba(140, 242, 184, 0.4);
 }
 
-/* ===============================================
-GENERAL BUTTON STYLING (For Articles and Activities)
-=============================================== */
 
 /* Base style for all view/activity buttons */
 .article-view-button, 
@@ -684,7 +655,6 @@ GENERAL BUTTON STYLING (For Articles and Activities)
 .activities-button {
     background: var(--accent-green);
     box-shadow: 0 4px 10px rgba(140, 242, 184, 0.4);
-    /* Specific margin adjustment for the activity card */
     margin-bottom: 5px; 
 }
 
@@ -710,9 +680,6 @@ GENERAL BUTTON STYLING (For Articles and Activities)
     background: #b8ffdc;
 }
 
-/* ===============================================
-SIDEBAR WITH ENHANCED STYLING
-=============================================== */
 
 .editor-picks,
 .activities {
@@ -739,9 +706,6 @@ SIDEBAR WITH ENHANCED STYLING
     text-shadow: 0 0 20px rgba(242, 140, 140, 0.3);
 }
 
-/* ===============================================
-STAFF PAGE WITH ROLE ANIMATIONS
-=============================================== */
 
 .staff-page {
     padding: 60px 0;
@@ -853,10 +817,9 @@ STAFF PAGE WITH ROLE ANIMATIONS
 .color-physics { --role-color: var(--accent-green); }
 .color-graphic { --role-color: var(--accent-yellow); }
 .color-programming { --role-color: var(--accent-purple); }
-.color-outreach { --role-color: var(--accent-teal); } /* Added Outreach color variable reference */
+.color-outreach { --role-color: var(--accent-teal); } 
 
-/* Apply Colors with proper contrast */
-/* Using background-color for titles again, and ensuring text is black for high contrast */
+
 .staff-card.editor .role-title { 
     background-color: var(--role-color);
     color: #0a0a0a;
@@ -888,7 +851,6 @@ STAFF PAGE WITH ROLE ANIMATIONS
     font-weight: 800;
 }
 
-/* Apply Hover Border with Animated Glow */
 .staff-card.editor:hover { 
     border-color: var(--accent-red);
     box-shadow: 
@@ -923,12 +885,9 @@ STAFF PAGE WITH ROLE ANIMATIONS
     border-color: var(--accent-teal);
     box-shadow: 
         0 16px 48px rgba(0, 0, 0, 0.8), 
-        0 0 50px rgba(140, 242, 242, 0.4); /* Teal glow */
+        0 0 50px rgba(140, 242, 242, 0.4); 
 }
 
-/* ===============================================
-ABOUT PAGE WITH ELEGANT STYLING
-=============================================== */
 
 .about-page {
     padding: 60px 0;
@@ -1051,9 +1010,6 @@ ABOUT PAGE WITH ELEGANT STYLING
     font-weight: 700;
 }
 
-/* ===============================================
-PAST EDITIONS PAGE WITH GALLERY EFFECTS
-=============================================== */
 
 .editions-page {
     padding: 60px 0;
@@ -1123,7 +1079,7 @@ PAST EDITIONS PAGE WITH GALLERY EFFECTS
     box-shadow: 0 8px 30px rgba(140, 184, 242, 0.3);
 }
 
-/* Specific styling for the most recent edition */
+
 .edition-card.recent {
     border: 2px solid var(--accent-red);
     box-shadow: 
@@ -1151,7 +1107,6 @@ PAST EDITIONS PAGE WITH GALLERY EFFECTS
         0 0 70px rgba(242, 140, 140, 0.6);
 }
 
-/* Specific styling for the award-winning edition */
 .edition-card.award-winning {
     border: 2px solid var(--accent-yellow);
     box-shadow: 
@@ -1216,9 +1171,6 @@ PAST EDITIONS PAGE WITH GALLERY EFFECTS
     color: #0a0a0a;
 }
 
-/* ===============================================
-MODAL STYLES (Used by index.html for image popups)
-=============================================== */
 
 .modal-overlay {
     position: fixed;
@@ -1227,7 +1179,7 @@ MODAL STYLES (Used by index.html for image popups)
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
-    display: none; /* Hidden by default */
+    display: none; 
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -1266,9 +1218,6 @@ MODAL STYLES (Used by index.html for image popups)
     transform: scale(1.1);
 }
 
-/* ===============================================
-RESPONSIVE STYLES WITH SMOOTH TRANSITIONS
-=============================================== */
 
 @media (max-width: 1000px) {
     .content-grid .container {
